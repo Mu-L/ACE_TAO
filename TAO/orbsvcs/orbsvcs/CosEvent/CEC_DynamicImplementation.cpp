@@ -12,11 +12,6 @@
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
-// Destructor
-TAO_CEC_DynamicImplementationServer::~TAO_CEC_DynamicImplementationServer ()
-{
-}
-
 // The DSI invoke request
 void
 TAO_CEC_DynamicImplementationServer::invoke (CORBA::ServerRequest_ptr request)
@@ -93,7 +88,7 @@ TAO_CEC_DynamicImplementationServer::is_a (CORBA::ServerRequest_ptr request)
   CORBA::NamedValue_ptr nv = list->item (0);
 
   CORBA::Any_ptr ap = nv->value ();
-  const char *value = 0;
+  const char *value {};
   *ap >>= value;
 
   if (TAO_debug_level >= 10)
