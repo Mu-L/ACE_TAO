@@ -59,7 +59,7 @@ public:
    * signals when @c SIGALRM is run.  Otherwise, just block the signals
    * indicated in @a mask.
    */
-  ACE_Async_Timer_Queue_Adapter (ACE_Sig_Set *mask = 0);
+  ACE_Async_Timer_Queue_Adapter (ACE_Sig_Set *mask = nullptr);
 
   /// Schedule the timer according to the semantics of the
   /// ACE_Timer_List.
@@ -75,7 +75,7 @@ public:
 
   /// Cancel the @a timer_id and pass back the @a act if an address is
   /// passed in.
-  int cancel (long timer_id, const void **act = 0);
+  int cancel (long timer_id, const void **act = nullptr);
 
   /// Dispatch all timers with expiry time at or before the current time.
   /// Returns the number of timers expired.
@@ -149,7 +149,7 @@ public:
 
   /// Cancel the @a timer_id and return the @a act parameter if an
   /// address is passed in. Also wakes up the dispatching thread.
-  int cancel (long timer_id, const void **act = 0);
+  int cancel (long timer_id, const void **act = nullptr);
 
   /// Runs the dispatching thread.
   virtual int svc ();
@@ -179,12 +179,12 @@ public:
                         int force_active = 0,
                         long priority = ACE_DEFAULT_THREAD_PRIORITY,
                         int grp_id = -1,
-                        ACE_Task_Base *task = 0,
-                        ACE_hthread_t thread_handles[] = 0,
-                        void *stack[] = 0,
-                        size_t stack_size[] = 0,
-                        ACE_thread_t thread_ids[] = 0,
-                        const char* thr_name[] = 0);
+                        ACE_Task_Base *task = nullptr,
+                        ACE_hthread_t thread_handles[] = nullptr,
+                        void *stack[] = nullptr,
+                        size_t stack_size[] = nullptr,
+                        ACE_thread_t thread_ids[] = nullptr,
+                        const char* thr_name[] = nullptr);
 
 # if defined (ACE_HAS_DEFERRED_TIMER_COMMANDS)
 

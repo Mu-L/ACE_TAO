@@ -1161,8 +1161,8 @@ namespace ACE_OS {
   extern ACE_Export
   int cond_init (ACE_cond_t *cv,
                  short type = ACE_DEFAULT_SYNCH_TYPE,
-                 const char *name = 0,
-                 void *arg = 0);
+                 const char *name = nullptr,
+                 void *arg = nullptr);
 
 #if defined (ACE_LACKS_COND_T)
   extern ACE_Export
@@ -1251,8 +1251,8 @@ namespace ACE_OS {
                   ACE_condattr_t *attributes,
                   int manual_reset = 0,
                   int initial_state = 0,
-                  const char *name = 0,
-                  void *arg = 0,
+                  const char *name = nullptr,
+                  void *arg = nullptr,
                   LPSECURITY_ATTRIBUTES sa = 0);
 
 # if defined (ACE_HAS_WCHAR)
@@ -1310,8 +1310,8 @@ namespace ACE_OS {
   extern ACE_Export
   int mutex_init (ACE_mutex_t *m,
                   int lock_scope = ACE_DEFAULT_SYNCH_TYPE,
-                  const char *name = 0,
-                  ACE_mutexattr_t *arg = 0,
+                  const char *name = nullptr,
+                  ACE_mutexattr_t *arg = nullptr,
                   LPSECURITY_ATTRIBUTES sa = 0,
                   int lock_type = 0);
 
@@ -1459,8 +1459,8 @@ namespace ACE_OS {
   extern ACE_Export
   int rwlock_init (ACE_rwlock_t *rw,
                    int type = ACE_DEFAULT_SYNCH_TYPE,
-                   const ACE_TCHAR *name = 0,
-                   void *arg = 0);
+                   const ACE_TCHAR *name = nullptr,
+                   void *arg = nullptr);
 
   //@}
 
@@ -1635,12 +1635,12 @@ namespace ACE_OS {
                   void *args,
                   long flags,
                   ACE_thread_t *thr_id,
-                  ACE_hthread_t *t_handle = 0,
+                  ACE_hthread_t *t_handle = nullptr,
                   long priority = ACE_DEFAULT_THREAD_PRIORITY,
-                  void *stack = 0,
+                  void *stack = nullptr,
                   size_t stacksize = ACE_DEFAULT_THREAD_STACKSIZE,
-                  ACE_Base_Thread_Adapter *thread_adapter = 0,
-                  const char **thr_name = 0);
+                  ACE_Base_Thread_Adapter *thread_adapter = nullptr,
+                  const char **thr_name = nullptr);
 
   ACE_NAMESPACE_INLINE_FUNCTION
   int thr_equal (ACE_thread_t t1, ACE_thread_t t2);

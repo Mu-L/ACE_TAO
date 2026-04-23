@@ -380,7 +380,7 @@ public:
    * Initialize an empty stack using the user specified allocation strategy
    * if provided.
    */
-  ACE_Unbounded_Stack (ACE_Allocator *the_allocator = 0);
+  ACE_Unbounded_Stack (ACE_Allocator *the_allocator = nullptr);
 
   /// The copy constructor (performs initialization).
   /**
@@ -825,7 +825,7 @@ public:
    * Initialize an empy list using the allocation strategy specified by the user.
    * If none is specified, then use default allocation strategy.
    */
-  ACE_Double_Linked_List (ACE_Allocator *the_allocator = 0);
+  ACE_Double_Linked_List (ACE_Allocator *the_allocator = nullptr);
 
   /// Copy constructor.
   /**
@@ -1782,7 +1782,7 @@ public:
    * Initialize the set using the allocation strategy specified.  If none, use the
    * default strategy.
    */
-  ACE_Ordered_MultiSet (ACE_Allocator *the_allocator = 0);
+  ACE_Ordered_MultiSet (ACE_Allocator *the_allocator = nullptr);
 
   /// Copy constructor.
   /**
@@ -1953,7 +1953,7 @@ public:
    * allocation strategy.
    */
   ACE_Array (size_t size = 0,
-             ACE_Allocator* alloc = 0);
+             ACE_Allocator* alloc = nullptr);
 
   /// Dynamically initialize the entire array to the {default_value}.
   /**
@@ -1961,7 +1961,7 @@ public:
    */
   ACE_Array (size_t size,
              const T &default_value,
-             ACE_Allocator* alloc = 0);
+             ACE_Allocator* alloc = nullptr);
 
   ///Copy constructor.
   /**

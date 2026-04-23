@@ -185,8 +185,8 @@ public:
    *        If @a entry_alloc is 0 it defaults to the same allocator as
    *        @a table_alloc.
    */
-  ACE_Hash_Map_Manager_Ex (ACE_Allocator *table_alloc = 0,
-                           ACE_Allocator *entry_alloc = 0);
+  ACE_Hash_Map_Manager_Ex (ACE_Allocator *table_alloc = nullptr,
+                           ACE_Allocator *entry_alloc = nullptr);
 
   /**
    * Initialize an ACE_Hash_Map_Manager_Ex with @a size elements.
@@ -201,8 +201,8 @@ public:
    *        @a table_alloc.
    */
   ACE_Hash_Map_Manager_Ex (size_t size,
-                           ACE_Allocator *table_alloc = 0,
-                           ACE_Allocator *entry_alloc = 0);
+                           ACE_Allocator *table_alloc = nullptr,
+                           ACE_Allocator *entry_alloc = nullptr);
 
   /**
    * Initialize an ACE_Hash_Map_Manager_Ex with @a size elements.
@@ -218,8 +218,8 @@ public:
    */
 
   int open (size_t size = ACE_DEFAULT_MAP_SIZE,
-            ACE_Allocator *table_alloc = 0,
-            ACE_Allocator *entry_alloc = 0);
+            ACE_Allocator *table_alloc = nullptr,
+            ACE_Allocator *entry_alloc = nullptr);
 
   /// Close down the ACE_Hash_Map_Manager_Ex and release dynamically allocated
   /// resources.

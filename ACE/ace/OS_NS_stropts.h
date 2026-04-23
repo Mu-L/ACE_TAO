@@ -127,10 +127,10 @@ namespace ACE_OS {
              unsigned long io_control_code,
              ACE_QoS &ace_qos,
              unsigned long *bytes_returned,
-             void *buffer_p = 0,
+             void *buffer_p = nullptr,
              unsigned long buffer = 0,
-             ACE_OVERLAPPED *overlapped = 0,
-             ACE_OVERLAPPED_COMPLETION_FUNC func = 0);
+             ACE_OVERLAPPED *overlapped = nullptr,
+             ACE_OVERLAPPED_COMPLETION_FUNC func = nullptr);
 
   ACE_NAMESPACE_INLINE_FUNCTION
   int isastream (ACE_HANDLE handle);

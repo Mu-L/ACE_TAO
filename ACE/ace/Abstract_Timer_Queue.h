@@ -154,7 +154,7 @@ public:
    * cancellation succeeded and 0 if the @a timer_id wasn't found.
    */
   virtual int cancel (long timer_id,
-                      const void **act = 0,
+                      const void **act = nullptr,
                       int dont_call_handle_close = 1) = 0;
 
   /**

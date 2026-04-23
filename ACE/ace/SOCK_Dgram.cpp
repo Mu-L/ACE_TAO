@@ -88,7 +88,7 @@ ACE_SOCK_Dgram::recv (iovec *io_vec,
 #else
           delete [] (char *)io_vec->iov_base;
 #endif /* ACE_HAS_ALLOC_HOOKS */
-          io_vec->iov_base = 0;
+          io_vec->iov_base = nullptr;
         }
       else
         {
@@ -275,7 +275,7 @@ ACE_SOCK_Dgram::send (const iovec iov[],
   send_msg.msg_namelen = addr.get_size ();
 
 #if defined (ACE_HAS_4_4BSD_SENDMSG_RECVMSG)
-  send_msg.msg_control = 0;
+  send_msg.msg_control = nullptr;
   send_msg.msg_controllen = 0;
   send_msg.msg_flags = 0;
 #elif !defined ACE_LACKS_SENDMSG
@@ -643,7 +643,7 @@ ACE_SOCK_Dgram::make_multicast_ifaddr (ip_mreq *ret_mreq,
 {
   ACE_TRACE ("ACE_SOCK_Dgram::make_multicast_ifaddr");
   ip_mreq  lmreq;       // Scratch copy.
-  if (net_if != 0)
+  if (net_if != nullptr)
     {
 #if defined (ACE_WIN32)
       // This port number is not necessary, just convenient

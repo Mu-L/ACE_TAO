@@ -216,9 +216,9 @@ public:
   /// Constructor
   ACE_Bounded_Cached_Connect_Strategy (size_t  max_size,
                                        CACHING_STRATEGY &caching_s,
-                                       ACE_Creation_Strategy<SVC_HANDLER> *cre_s = 0,
-                                       ACE_Concurrency_Strategy<SVC_HANDLER> *con_s = 0,
-                                       ACE_Recycling_Strategy<SVC_HANDLER> *rec_s = 0,
+                                       ACE_Creation_Strategy<SVC_HANDLER> *cre_s = nullptr,
+                                       ACE_Concurrency_Strategy<SVC_HANDLER> *con_s = nullptr,
+                                       ACE_Recycling_Strategy<SVC_HANDLER> *rec_s = nullptr,
                                        MUTEX *lock = 0,
                                        int delete_lock = 0);
 

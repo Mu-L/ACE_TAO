@@ -246,7 +246,7 @@ public:
   virtual int connect_n (size_t n,
                          SVC_HANDLER *svc_handlers[],
                          typename PEER_CONNECTOR::PEER_ADDR remote_addrs[],
-                         ACE_TCHAR *failed_svc_handlers = 0,
+                         ACE_TCHAR *failed_svc_handlers = nullptr,
                          const ACE_Synch_Options &synch_options =
                          ACE_Synch_Options::defaults);
 
@@ -435,9 +435,9 @@ public:
    * non-blocking I/O on the SVC_HANDLER when it is opened.
    */
   ACE_Strategy_Connector (ACE_Reactor *r = ACE_Reactor::instance (),
-                          ACE_Creation_Strategy<SVC_HANDLER> * = 0,
-                          ACE_Connect_Strategy<SVC_HANDLER, PEER_CONNECTOR> * = 0,
-                          ACE_Concurrency_Strategy<SVC_HANDLER> * = 0,
+                          ACE_Creation_Strategy<SVC_HANDLER> * = nullptr,
+                          ACE_Connect_Strategy<SVC_HANDLER, PEER_CONNECTOR> * = nullptr,
+                          ACE_Concurrency_Strategy<SVC_HANDLER> * = nullptr,
                           int flags = 0);
 
   /**
@@ -457,9 +457,9 @@ public:
    * non-blocking I/O on the SVC_HANDLER when it is opened.
    */
   virtual int open (ACE_Reactor *r = ACE_Reactor::instance (),
-                    ACE_Creation_Strategy<SVC_HANDLER> * = 0,
-                    ACE_Connect_Strategy<SVC_HANDLER, PEER_CONNECTOR> * = 0,
-                    ACE_Concurrency_Strategy<SVC_HANDLER> * = 0,
+                    ACE_Creation_Strategy<SVC_HANDLER> * = nullptr,
+                    ACE_Connect_Strategy<SVC_HANDLER, PEER_CONNECTOR> * = nullptr,
+                    ACE_Concurrency_Strategy<SVC_HANDLER> * = nullptr,
                     int flags = 0);
 
   /// Shutdown a connector and release resources.

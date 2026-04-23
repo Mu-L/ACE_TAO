@@ -60,12 +60,12 @@ public:
 
   /// Dynamically create an uninitialized array.
   ACE_Array_Base (size_type size = 0,
-                  ACE_Allocator * the_allocator = 0);
+                  ACE_Allocator * the_allocator = nullptr);
 
   /// Dynamically initialize the entire array to the @a default_value.
   ACE_Array_Base (size_type size,
                   T const & default_value,
-                  ACE_Allocator * the_allocator = 0);
+                  ACE_Allocator * the_allocator = nullptr);
 
   /**
    * The copy constructor performs initialization by making an exact

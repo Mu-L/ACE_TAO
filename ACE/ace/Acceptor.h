@@ -298,8 +298,8 @@ public:
   typedef ACE_Scheduling_Strategy<SVC_HANDLER> SCHEDULING_STRATEGY;
 
   /// Default constructor.
-  ACE_Strategy_Acceptor (const ACE_TCHAR service_name[] = 0,
-                         const ACE_TCHAR service_description[] = 0,
+  ACE_Strategy_Acceptor (const ACE_TCHAR service_name[] = nullptr,
+                         const ACE_TCHAR service_description[] = nullptr,
                          int use_select = ACE_DEFAULT_ACCEPTOR_USE_SELECT,
                          int reuse_addr = 1);
 
@@ -311,12 +311,12 @@ public:
    */
   ACE_Strategy_Acceptor (const typename PEER_ACCEPTOR::PEER_ADDR &local_addr,
                          ACE_Reactor * = ACE_Reactor::instance (),
-                         ACE_Creation_Strategy<SVC_HANDLER> * = 0,
-                         ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR> * = 0,
-                         ACE_Concurrency_Strategy<SVC_HANDLER> * = 0,
-                         ACE_Scheduling_Strategy<SVC_HANDLER> * = 0,
-                         const ACE_TCHAR service_name[] = 0,
-                         const ACE_TCHAR service_description[] = 0,
+                         ACE_Creation_Strategy<SVC_HANDLER> * = nullptr,
+                         ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR> * = nullptr,
+                         ACE_Concurrency_Strategy<SVC_HANDLER> * = nullptr,
+                         ACE_Scheduling_Strategy<SVC_HANDLER> * = nullptr,
+                         const ACE_TCHAR service_name[] = nullptr,
+                         const ACE_TCHAR service_description[] = nullptr,
                          int use_select = ACE_DEFAULT_ACCEPTOR_USE_SELECT,
                          int reuse_addr = 1);
 
@@ -368,12 +368,12 @@ public:
    */
   virtual int open (const typename PEER_ACCEPTOR::PEER_ADDR &,
                     ACE_Reactor * = ACE_Reactor::instance (),
-                    ACE_Creation_Strategy<SVC_HANDLER> * = 0,
-                    ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR> * =0,
-                    ACE_Concurrency_Strategy<SVC_HANDLER> * = 0,
-                    ACE_Scheduling_Strategy<SVC_HANDLER> * = 0,
-                    const ACE_TCHAR *service_name = 0,
-                    const ACE_TCHAR *service_description = 0,
+                    ACE_Creation_Strategy<SVC_HANDLER> * = nullptr,
+                    ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR> * =nullptr,
+                    ACE_Concurrency_Strategy<SVC_HANDLER> * = nullptr,
+                    ACE_Scheduling_Strategy<SVC_HANDLER> * = nullptr,
+                    const ACE_TCHAR *service_name = nullptr,
+                    const ACE_TCHAR *service_description = nullptr,
                     int use_select = ACE_DEFAULT_ACCEPTOR_USE_SELECT,
                     int reuse_addr = 1);
 
@@ -554,7 +554,7 @@ public:
    */
   ACE_Oneshot_Acceptor (const typename PEER_ACCEPTOR::PEER_ADDR &local_addr,
                         ACE_Reactor *reactor = ACE_Reactor::instance (),
-                        ACE_Concurrency_Strategy<SVC_HANDLER> * = 0);
+                        ACE_Concurrency_Strategy<SVC_HANDLER> * = nullptr);
 
   /**
    * Initialize the appropriate strategies for concurrency and then
@@ -566,7 +566,7 @@ public:
    */
   int open (const typename PEER_ACCEPTOR::PEER_ADDR &,
             ACE_Reactor *reactor = ACE_Reactor::instance (),
-            ACE_Concurrency_Strategy<SVC_HANDLER> * = 0);
+            ACE_Concurrency_Strategy<SVC_HANDLER> * = nullptr);
 
   /// Close down the {Oneshot_Acceptor}.
   virtual ~ACE_Oneshot_Acceptor ();
