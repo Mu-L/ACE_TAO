@@ -231,7 +231,7 @@ ACE_Event_Handler::read_adapter (void *args)
   // cache the reactor pointer and use it here.
   r->notify ();
 
-  return nullptr;
+  return 0;
 }
 
 int
