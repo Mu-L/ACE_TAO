@@ -52,7 +52,7 @@ public:
   /// Constructor.
   TAO_Thread_Lane_Resources (
       TAO_ORB_Core &orb_core,
-      TAO_New_Leader_Generator *new_leader_generator = 0);
+      TAO_New_Leader_Generator *new_leader_generator = nullptr);
 
   /// Destructor.
   ~TAO_Thread_Lane_Resources ();

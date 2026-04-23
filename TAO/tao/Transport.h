@@ -102,7 +102,7 @@ namespace TAO
   public:
     /// Default constructor
     Drain_Constraints()
-      : timeout_(0)
+      : timeout_(nullptr)
       , block_on_io_(false)
     {
     }
@@ -538,7 +538,7 @@ public:
    */
   virtual ssize_t recv (char *buffer,
                         size_t len,
-                        const ACE_Time_Value *timeout = 0) = 0;
+                        const ACE_Time_Value *timeout = nullptr) = 0;
 
   /**
    * @name Control connection lifecycle
@@ -692,7 +692,7 @@ public:
    * those cases a maximum read time can be specified.
    */
   virtual int handle_input (TAO_Resume_Handle &rh,
-                            ACE_Time_Value *max_wait_time = 0);
+                            ACE_Time_Value *max_wait_time = nullptr);
 
   /// Prepare the waiting and demuxing strategy to receive a reply for
   /// a new request.
@@ -736,10 +736,10 @@ public:
    *
    */
   virtual int send_message (TAO_OutputCDR &stream,
-                            TAO_Stub *stub = 0,
-                            TAO_ServerRequest *request = 0,
+                            TAO_Stub *stub = nullptr,
+                            TAO_ServerRequest *request = nullptr,
                             TAO_Message_Semantics message_semantics = TAO_Message_Semantics (),
-                            ACE_Time_Value *max_time_wait = 0) = 0;
+                            ACE_Time_Value *max_time_wait = nullptr) = 0;
 
   /// Sent the contents of @a message_block
   /**
@@ -815,7 +815,7 @@ public:
    */
   int send_message_block_chain (const ACE_Message_Block *message_block,
                                 size_t &bytes_transferred,
-                                ACE_Time_Value *max_wait_time = 0);
+                                ACE_Time_Value *max_wait_time = nullptr);
 
   /// Send a message block chain, assuming the lock is held
   int send_message_block_chain_i (const ACE_Message_Block *message_block,

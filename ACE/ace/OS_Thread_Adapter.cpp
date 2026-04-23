@@ -22,7 +22,7 @@ ACE_OS_Thread_Adapter::ACE_OS_Thread_Adapter (
      , long cancel_flags
      )
   : ACE_Base_Thread_Adapter (user_func, arg, entry_point
-                             , 0
+                             , nullptr
 #if defined (ACE_HAS_WIN32_STRUCTURED_EXCEPTIONS)
                              , selector
                              , handler
@@ -69,7 +69,7 @@ ACE_OS_Thread_Adapter::invoke ()
         ACE_OS::thr_setcanceltype (val, &old);
     }
 
-  ACE_THR_FUNC_RETURN status = 0;
+  ACE_THR_FUNC_RETURN status = nullptr;
 
   ACE_SEH_TRY
     {

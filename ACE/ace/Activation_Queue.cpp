@@ -38,7 +38,7 @@ ACE_Activation_Queue::ACE_Activation_Queue (ACE_Message_Queue<ACE_SYNCH> *new_qu
   , allocator_(alloc)
   , data_block_allocator_(db_alloc)
 {
-  if (this->allocator_ == 0)
+  if (this->allocator_ == nullptr)
     this->allocator_ = ACE_Allocator::instance ();
 
   if (new_queue)
@@ -81,7 +81,7 @@ ACE_Activation_Queue::~ACE_Activation_Queue ()
 ACE_Method_Request *
 ACE_Activation_Queue::dequeue (ACE_Time_Value *tv)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   // Dequeue the message.
   if (this->queue_->dequeue_head (mb, tv) != -1)
@@ -94,14 +94,14 @@ ACE_Activation_Queue::dequeue (ACE_Time_Value *tv)
       return mr;
     }
   else
-    return 0;
+    return nullptr;
 }
 
 int
 ACE_Activation_Queue::enqueue (ACE_Method_Request *mr,
                                ACE_Time_Value *tv)
 {
-  ACE_Message_Block *mb = 0;
+  ACE_Message_Block *mb = nullptr;
 
   // We pass sizeof (*mr) here so that flow control will work
   // correctly.  Since we also pass <mr> note that no unnecessary
@@ -110,10 +110,10 @@ ACE_Activation_Queue::enqueue (ACE_Method_Request *mr,
                          static_cast<ACE_Message_Block *> (this->allocator_->malloc (sizeof (ACE_Message_Block))),
                          ACE_Message_Block (sizeof (*mr),    // size
                                             ACE_Message_Block::MB_DATA, // type
-                                            0,       // cont
+                                            nullptr,       // cont
                                             (char *) mr,    // data
-                                            0,       // allocator
-                                            0,       // locking strategy
+                                            nullptr,       // allocator
+                                            nullptr,       // locking strategy
                                             mr->priority (), // priority
                                             ACE_Time_Value::zero,     // execution time
                                             ACE_Time_Value::max_time, // absolute time of deadline
