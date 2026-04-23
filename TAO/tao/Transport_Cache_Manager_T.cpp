@@ -32,7 +32,7 @@ namespace TAO
     : percent_ (percent)
     , purging_strategy_ (purging)
     , cache_map_ (cache_maximum)
-    , cache_lock_ (0)
+    , cache_lock_ (nullptr)
     , cache_maximum_ (cache_maximum)
 #if defined (TAO_HAS_MONITOR_POINTS) && (TAO_HAS_MONITOR_POINTS == 1)
     , purge_monitor_ (0)
