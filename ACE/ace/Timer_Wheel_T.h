@@ -101,7 +101,7 @@ public:
   typedef ACE_Free_List<Node> FreeList;
 
   /// Default constructor
-  ACE_Timer_Wheel_T (FUNCTOR* upcall_functor = 0, FreeList* freelist = 0,
+  ACE_Timer_Wheel_T (FUNCTOR* upcall_functor = 0, FreeList* freelist = nullptr,
                      TIME_POLICY const & time_policy = TIME_POLICY());
 
   /// Constructor with opportunities to set the wheelsize and resolution
@@ -109,7 +109,7 @@ public:
                      u_int resolution,
                      size_t prealloc = 0,
                      FUNCTOR* upcall_functor = 0,
-                     FreeList* freelist = 0,
+                     FreeList* freelist = nullptr,
                      TIME_POLICY const & time_policy = TIME_POLICY());
 
   /// Destructor
@@ -137,7 +137,7 @@ public:
   // Calls the functor if dont_call_handle_close is 0 and returns 1
   // on success
   virtual int cancel (long timer_id,
-                      const void** act = 0,
+                      const void** act = nullptr,
                       int dont_call_handle_close = 1);
 
   /**

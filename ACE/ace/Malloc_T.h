@@ -222,7 +222,7 @@ public:
    * Note that @a pool_name should be located in
    * a directory with the appropriate visibility and protection so
    * that all processes that need to access it can do so. */
-  ACE_Allocator_Adapter (const char *pool_name = 0);
+  ACE_Allocator_Adapter (const char *pool_name = nullptr);
 
   /**
    * Note that @a pool_name should be located in
@@ -452,7 +452,7 @@ public:
    * a directory with the appropriate visibility and protection so
    * that all processes that need to access it can do so.
    */
-  ACE_Malloc_T (const ACE_TCHAR *pool_name = 0);
+  ACE_Malloc_T (const ACE_TCHAR *pool_name = nullptr);
 
   /**
    * Initialize ACE_Malloc.  This constructor passes @a pool_name to
@@ -467,7 +467,7 @@ public:
    */
   ACE_Malloc_T (const ACE_TCHAR *pool_name,
                 const ACE_TCHAR *lock_name,
-                const ACE_MEM_POOL_OPTIONS *options = 0);
+                const ACE_MEM_POOL_OPTIONS *options = nullptr);
 
   /**
    * Initialize an ACE_Malloc with an external ACE_LOCK.
@@ -703,7 +703,7 @@ public:
   /// If @a name = 0 it will iterate through everything else only
   /// through those entries whose @a name match.
   ACE_Malloc_LIFO_Iterator_T (ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB> &malloc,
-                              const char *name = 0);
+                              const char *name = nullptr);
 
   /// Destructor.
   ~ACE_Malloc_LIFO_Iterator_T ();
@@ -771,7 +771,7 @@ public:
   /// If @a name = 0 it will iterate through everything else only
   /// through those entries whose @a name match.
   ACE_Malloc_FIFO_Iterator_T (ACE_Malloc_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB> &malloc,
-                              const char *name = 0);
+                              const char *name = nullptr);
 
   /// Destructor.
   ~ACE_Malloc_FIFO_Iterator_T ();
@@ -834,7 +834,7 @@ public:
    * a directory with the appropriate visibility and protection so
    * that all processes that need to access it can do so.
    */
-  ACE_Malloc (const ACE_TCHAR *pool_name = 0);
+  ACE_Malloc (const ACE_TCHAR *pool_name = nullptr);
 
   /**
    * Initialize ACE_Malloc.  This constructor passes @a pool_name to
@@ -848,7 +848,7 @@ public:
    */
   ACE_Malloc (const ACE_TCHAR *pool_name,
               const ACE_TCHAR *lock_name,
-              const ACE_MEM_POOL_OPTIONS *options = 0);
+              const ACE_MEM_POOL_OPTIONS *options = nullptr);
 };
 
 template <ACE_MEM_POOL_1, class ACE_LOCK>
@@ -858,7 +858,7 @@ public:
   /// If @a name = 0 it will iterate through everything else only
   /// through those entries whose @a name match.
   ACE_Malloc_LIFO_Iterator (ACE_Malloc<ACE_MEM_POOL_2, ACE_LOCK> &malloc,
-                            const char *name = 0);
+                            const char *name = nullptr);
 };
 
 template <ACE_MEM_POOL_1, class ACE_LOCK>
@@ -868,7 +868,7 @@ public:
   /// If @a name = 0 it will iterate through everything else only
   /// through those entries whose @a name match.
   ACE_Malloc_FIFO_Iterator (ACE_Malloc<ACE_MEM_POOL_2, ACE_LOCK> &malloc,
-                            const char *name = 0);
+                            const char *name = nullptr);
 };
 
 template <class ACE_LOCK>

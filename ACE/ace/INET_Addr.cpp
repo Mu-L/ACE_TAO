@@ -449,7 +449,7 @@ static int get_port_number_from_name (const char port_name[],
                                       const char protocol[])
 {
   // Maybe port_name is directly a port number?
-  char *endp = 0;
+  char *endp = nullptr;
   long port_number = ACE_OS::strtol (port_name, &endp, 10);
 
   if (*endp == '\0')

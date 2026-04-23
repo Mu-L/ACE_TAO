@@ -121,7 +121,7 @@ public:
 
   static u_long log_backend_flags_;
 
-  static int init_backend (const u_long *flags = 0);
+  static int init_backend (const u_long *flags = nullptr);
 
 #if defined (ACE_MT_SAFE) && (ACE_MT_SAFE != 0)
   //FUZZ: disable check_for_lack_ACE_OS

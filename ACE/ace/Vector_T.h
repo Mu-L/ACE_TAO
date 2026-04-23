@@ -83,7 +83,7 @@ public:
    *              default ACE allocator is used
    */
   ACE_Vector (const size_t init_size = DEFAULT_SIZE,
-              ACE_Allocator* alloc = 0);
+              ACE_Allocator* alloc = nullptr);
 
   /**
    * Destructor.

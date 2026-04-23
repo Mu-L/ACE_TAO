@@ -305,7 +305,7 @@ ACE_SIG_HANDLERS_SET *
 ACE_Sig_Handlers_Set::instance (int signum)
 {
   if (signum <= 0 || signum >= ACE_NSIG)
-    return 0; // This will cause problems...
+    return nullptr; // This will cause problems...
   else if (ACE_Sig_Handlers_Set::sig_handlers_[signum] == 0)
     ACE_NEW_RETURN (ACE_Sig_Handlers_Set::sig_handlers_[signum],
                     ACE_SIG_HANDLERS_SET,

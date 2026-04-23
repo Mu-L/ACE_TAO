@@ -157,7 +157,7 @@ ACE::debug ()
   //FUZZ: disable check_for_ace_log_categories
   static const char *debug = ACE_OS::getenv ("ACE_DEBUG");
   //FUZZ: enable check_for_ace_log_categories
-  return (ACE::debug_) ? ACE::debug_ : (debug != 0 ? (*debug != '0') : false);
+  return (ACE::debug_) ? ACE::debug_ : (debug != nullptr ? (*debug != '0') : false);
 }
 
 void
@@ -2407,7 +2407,7 @@ ACE::timestamp (const ACE_Time_Value& time_value,
   if (date_and_timelen < 27)
     {
       errno = EINVAL;
-      return 0;
+      return nullptr;
     }
 
   ACE_Time_Value cur_time =
@@ -3305,9 +3305,9 @@ ACE::strend (const wchar_t *s)
 char *
 ACE::strnew (const char *s)
 {
-  if (s == 0)
-    return 0;
-  char *t = 0;
+  if (s == nullptr)
+    return nullptr;
+  char *t = nullptr;
 #if defined (ACE_HAS_ALLOC_HOOKS)
   ACE_ALLOCATOR_RETURN (t,
                         static_cast<char*> (ACE_Allocator::instance ()->malloc (sizeof (char) * (ACE_OS::strlen (s) + 1))),
@@ -3405,7 +3405,7 @@ ACE::wild_match(const char *str, const char *pat, bool case_sensitive,
 {
   if (str == pat)
     return true;
-  if (pat == 0 || str == 0)
+  if (pat == nullptr || str == nullptr)
     return false;
 
   bool star = false, escape = false;

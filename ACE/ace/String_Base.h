@@ -84,7 +84,7 @@ public:
     *  @param the_allocator ACE_Allocator associated with string
     *  @return Default ACE_String_Base string.
     */
-  ACE_String_Base (ACE_Allocator *the_allocator = 0);
+  ACE_String_Base (ACE_Allocator *the_allocator = nullptr);
 
   /**
    * Constructor that copies @a s into dynamically allocated memory.
@@ -142,7 +142,7 @@ public:
    *  @param the_allocator ACE_Allocator associated with string
    *  @return ACE_String_Base containing ACE_CHAR_T 'c'
    */
-  ACE_String_Base (ACE_CHAR_T c, ACE_Allocator *the_allocator = 0);
+  ACE_String_Base (ACE_CHAR_T c, ACE_Allocator *the_allocator = nullptr);
 
   /**
    *  Constructor that allocates a len long string.

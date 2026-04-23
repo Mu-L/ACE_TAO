@@ -103,7 +103,7 @@ public:
 
   /// A helper method that grabs the token for us, after which the
   /// thread that owns that can do some actual work.
-  int acquire_read_token (ACE_Time_Value *max_wait_time = 0);
+  int acquire_read_token (ACE_Time_Value *max_wait_time = nullptr);
 
   /**
    * A helper method that grabs the token for us, after which the
@@ -111,7 +111,7 @@ public:
    * acquire_read_token() as it uses acquire () to get the token instead of
    * acquire_read ()
    */
-  int acquire_token (ACE_Time_Value *max_wait_time = 0);
+  int acquire_token (ACE_Time_Value *max_wait_time = nullptr);
 
 private:
   ACE_TP_Token_Guard () = delete;
