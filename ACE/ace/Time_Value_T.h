@@ -35,7 +35,7 @@ template <class TIME_POLICY>
 class ACE_Time_Value_T : public ACE_Time_Value
 {
 public:
-  typedef TIME_POLICY time_policy_t;
+  using time_policy_t = TIME_POLICY;
 
   /// Default Constructor.
   ACE_Time_Value_T () {}

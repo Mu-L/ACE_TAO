@@ -96,7 +96,7 @@ private:
   ACE_Recursive_Thread_Mutex &mutex_;
 };
 
-typedef ACE_Condition<ACE_Recursive_Thread_Mutex> ACE_Condition_Recursive_Thread_Mutex;
+using ACE_Condition_Recursive_Thread_Mutex = ACE_Condition<ACE_Recursive_Thread_Mutex>;
 
 ACE_END_VERSIONED_NAMESPACE_DECL
 

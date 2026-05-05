@@ -152,7 +152,7 @@ private:
 class TCPConnectionHandler : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNCH>
 {
 public:
-  typedef ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNCH> inherited;
+  using inherited = ACE_Svc_Handler<ACE_SOCK_Stream, ACE_NULL_SYNCH>;
 public:
   TCPConnectionHandler (bool p_serverSide = false);
   virtual ~TCPConnectionHandler ();
@@ -177,7 +177,7 @@ private:
   int pingsNo_; //!< number of pings client should make
 };
 
-typedef ACE_Connector< TCPConnectionHandler, ACE_SOCK_CONNECTOR > TCPConnectorHandler;
+using TCPConnectorHandler = ACE_Connector<TCPConnectionHandler, ACE_SOCK_Connector>;
 class TCPAcceptorHandler; // forward declaration
 
 /* \class HandlersRegister
@@ -211,7 +211,7 @@ private:
 class TCPAcceptorHandler : public ACE_Acceptor< TCPConnectionHandler, ACE_SOCK_ACCEPTOR >
 {
 public:
-  typedef ACE_Acceptor< TCPConnectionHandler, ACE_SOCK_ACCEPTOR > inherited;
+  using inherited = ACE_Acceptor<TCPConnectionHandler, ACE_SOCK_Acceptor>;
 public:
   TCPAcceptorHandler (HandlersRegister *p_handlersRegister);
   virtual ~TCPAcceptorHandler ();

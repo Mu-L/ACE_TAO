@@ -127,7 +127,7 @@ private:
   ACE_Condition (const ACE_Condition<ACE_Thread_Mutex> &) = delete;
 };
 
-typedef ACE_Condition<ACE_Thread_Mutex> ACE_Condition_Thread_Mutex;
+using ACE_Condition_Thread_Mutex = ACE_Condition<ACE_Thread_Mutex>;
 
 ACE_END_VERSIONED_NAMESPACE_DECL
 

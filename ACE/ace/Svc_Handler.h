@@ -70,8 +70,8 @@ class ACE_Svc_Handler : public ACE_Task<SYNCH_TRAITS>
 {
 public:
   // Useful STL-style traits.
-  typedef typename PEER_STREAM::PEER_ADDR addr_type;
-  typedef PEER_STREAM stream_type;
+  using addr_type = typename PEER_STREAM::PEER_ADDR;
+  using stream_type = PEER_STREAM;
 
   /**
    * Constructor initializes the @a thr_mgr and @a mq by passing them

@@ -89,7 +89,7 @@ template <class RECEIVER>
 class ACE_Member_Function_Command : public ACE_Command_Base
 {
 public:
-  typedef void (RECEIVER::*PTMF)();
+  using PTMF = void (RECEIVER::*)();
 
   /// Con Constructor: sets the <receiver_> of the Command to @a recvr, and the
   /// <action_> of the Command to <action>.

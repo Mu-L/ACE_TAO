@@ -24,7 +24,7 @@
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 #if defined (ACE_MT_SAFE) && (ACE_MT_SAFE != 0)
-typedef ACE_Token ACE_SELECT_TOKEN;
+using ACE_SELECT_TOKEN = ACE_Token;
 #else
 typedef ACE_Noop_Token ACE_SELECT_TOKEN;
 #endif /* ACE_MT_SAFE && ACE_MT_SAFE != 0 */

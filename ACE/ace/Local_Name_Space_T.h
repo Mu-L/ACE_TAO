@@ -29,13 +29,13 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 /// A short-hand name for our set of name/value/type tuples passed back
 /// to callers.
-typedef ACE_Unbounded_Set<ACE_NS_WString> ACE_WSTRING_SET;
+using ACE_WSTRING_SET = ACE_Unbounded_Set<ACE_NS_WString>;
 
 ACE_END_VERSIONED_NAMESPACE_DECL
 
 # include "ace/Hash_Map_Manager_T.h"
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
-typedef ACE_Hash_Map_Manager_Ex<ACE_NS_String, ACE_NS_Internal, ACE_Hash<ACE_NS_String>, ACE_Equal_To<ACE_NS_String>, ACE_Null_Mutex> MAP_MANAGER;
+using MAP_MANAGER = ACE_Hash_Map_Manager_Ex<ACE_NS_String, ACE_NS_Internal, ACE_Hash<ACE_NS_String>, ACE_Equal_To<ACE_NS_String>, ACE_Null_Mutex>;
 ACE_END_VERSIONED_NAMESPACE_DECL
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
@@ -208,8 +208,7 @@ public:
   virtual void dump_i () const;
 
   // = I just know this is going to cause problems on some platform...
-  typedef ACE_Allocator_Adapter <ACE_Malloc <ACE_MEM_POOL_2, ACE_LOCK> >
-          ALLOCATOR;
+  using ALLOCATOR = ACE_Allocator_Adapter<ACE_Malloc<_ACE_MEM_POOL, ACE_LOCK>>;
 
   ACE_ALLOC_HOOK_DECLARE;
 

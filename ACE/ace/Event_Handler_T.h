@@ -63,19 +63,21 @@ public:
   // = Typedefs to simplify pointer-to-member-function registration.
 
   // Get/set the underlying handle.
-  typedef ACE_HANDLE (T::*GET_HANDLE) () const;
-  typedef void (T::*SET_HANDLE) (ACE_HANDLE);
+  using GET_HANDLE = ACE_HANDLE (T::*)() const;
+  t;
+using SET_HANDLE = void (T::*)(ACE_HANDLE);
 
   /// Handle I/O events.
-  typedef int (T::*IO_HANDLER) (ACE_HANDLE);
+  using IO_HANDLER = int (T::*)(ACE_HANDLE);
 
   /// Handle timeout events.
-  typedef int (T::*TO_HANDLER) (const ACE_Time_Value &, const void *);
+  using TO_HANDLER = int (T::*)(const ACE_Time_Value &, const void *);
 
   /// Handle close events.
-  typedef int (T::*CL_HANDLER) (ACE_HANDLE, ACE_Reactor_Mask);
+  using CL_HANDLER = int (T::*)(ACE_HANDLE, ACE_Reactor_Mask);
 
-  typedef int (T::*SIG_HANDLER) (int, siginfo_t*, ucontext_t*);
+  type;
+using SIG_HANDLER = int (T::*)(int, siginfo_t *, ucontext_t *);
 
   /// Initialize the op_handler.
   ACE_Event_Handler_T (T *op_handler,

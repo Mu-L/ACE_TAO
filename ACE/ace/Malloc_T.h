@@ -214,8 +214,8 @@ class ACE_Allocator_Adapter : public ACE_Allocator
 {
 public:
   // Trait.
-  typedef MALLOC ALLOCATOR;
-  typedef const typename MALLOC::MEMORY_POOL_OPTIONS *MEMORY_POOL_OPTIONS;
+  using ALLOCATOR = MALLOC;
+  using MEMORY_POOL_OPTIONS = const typename MALLOC::MEMORY_POOL_OPTIONS *;
 
   // = Initialization.
   /**
@@ -437,10 +437,10 @@ class ACE_Malloc_T
 public:
   friend class ACE_Malloc_LIFO_Iterator_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>;
   friend class ACE_Malloc_FIFO_Iterator_T<ACE_MEM_POOL_2, ACE_LOCK, ACE_CB>;
-  typedef ACE_MEM_POOL MEMORY_POOL;
-  typedef ACE_MEM_POOL_OPTIONS MEMORY_POOL_OPTIONS;
-  typedef typename ACE_CB::ACE_Name_Node NAME_NODE;
-  typedef typename ACE_CB::ACE_Malloc_Header MALLOC_HEADER;
+  using MEMORY_POOL = _ACE_MEM_POOL;
+  using MEMORY_POOL_OPTIONS = typename _ACE_MEM_POOL::OPTIONS;
+  using NAME_NODE = typename ACE_CB::ACE_Name_Node;
+  using MALLOC_HEADER = typename ACE_CB::ACE_Malloc_Header;
 
   /**
    * Initialize ACE_Malloc.  This constructor passes @a pool_name to
@@ -697,8 +697,8 @@ template <ACE_MEM_POOL_1, class ACE_LOCK, class ACE_CB>
 class ACE_Malloc_LIFO_Iterator_T
 {
 public:
-  typedef typename ACE_CB::ACE_Name_Node NAME_NODE;
-  typedef typename ACE_CB::ACE_Malloc_Header MALLOC_HEADER;
+  using NAME_NODE = typename ACE_CB::ACE_Name_Node;
+  using MALLOC_HEADER = typename ACE_CB::ACE_Malloc_Header;
 
   /// If @a name = 0 it will iterate through everything else only
   /// through those entries whose @a name match.
@@ -765,8 +765,8 @@ template <ACE_MEM_POOL_1, class ACE_LOCK, class ACE_CB>
 class ACE_Malloc_FIFO_Iterator_T
 {
 public:
-  typedef typename ACE_CB::ACE_Name_Node NAME_NODE;
-  typedef typename ACE_CB::ACE_Malloc_Header MALLOC_HEADER;
+  using NAME_NODE = typename ACE_CB::ACE_Name_Node;
+  using MALLOC_HEADER = typename ACE_CB::ACE_Malloc_Header;
 
   /// If @a name = 0 it will iterate through everything else only
   /// through those entries whose @a name match.

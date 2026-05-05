@@ -78,7 +78,7 @@ private:
 
   /// There is a queue per-priority, which simply holds the
   /// Event_Handlers until we know who goes first.
-  typedef ACE_Unbounded_Queue<ACE_Event_Tuple> QUEUE;
+  using QUEUE = ACE_Unbounded_Queue<ACE_Event_Tuple>;
   QUEUE** bucket_;
 
   /// The queues themselves use this allocator to minimize dynamic

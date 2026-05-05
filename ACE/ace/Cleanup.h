@@ -102,7 +102,7 @@ private:
   const char *name_;
 };
 
-typedef ACE_Intrusive_List<ACE_Cleanup_Info_Node> ACE_Cleanup_Info_Node_List;
+using ACE_Cleanup_Info_Node_List = ACE_Intrusive_List<ACE_Cleanup_Info_Node>;
 
 /**
  * @class ACE_OS_Exit_Info

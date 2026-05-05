@@ -75,7 +75,7 @@ public:
    * handling error status and the end-of-loop indication will be checked
    * as normal, just as if there is no hook function specified.
    */
-  typedef int (*REACTOR_EVENT_HOOK)(ACE_Reactor *);
+  using REACTOR_EVENT_HOOK = int (*)(ACE_Reactor *);
 
   /// Get pointer to a process-wide ACE_Reactor.
   static ACE_Reactor *instance ();

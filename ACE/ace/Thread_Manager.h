@@ -360,7 +360,7 @@ class ACE_Thread_Control;
 // ACE_Thread_Manager, so it's not useful for anyone else.
 // It also caused problems on IRIX5 with g++.
 #if defined (__GNUG__)
-typedef int (ACE_Thread_Manager::*ACE_THR_MEMBER_FUNC)(ACE_Thread_Descriptor *, int);
+using ACE_THR_MEMBER_FUNC = int (ACE_Thread_Manager::*)(ACE_Thread_Descriptor *, int);
 #endif /* __GNUG__ */
 
 /**

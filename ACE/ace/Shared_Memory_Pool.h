@@ -81,7 +81,7 @@ public:
 class ACE_Export ACE_Shared_Memory_Pool : public ACE_Event_Handler
 {
 public:
-  typedef ACE_Shared_Memory_Pool_Options OPTIONS;
+  using OPTIONS = ACE_Shared_Memory_Pool_Options;
 
   /// Initialize the pool.
   ACE_Shared_Memory_Pool (const ACE_TCHAR *backing_store_name = nullptr,

@@ -876,8 +876,7 @@ private:
   /// true  - Connect is registered in ACE_Asynch_Pseudo_Task
   /// false - Aceept is deregisted in ACE_Asynch_Pseudo_Task
 
-  typedef ACE_Map_Manager<ACE_HANDLE, ACE_POSIX_Asynch_Connect_Result *, ACE_SYNCH_NULL_MUTEX>
-          MAP_MANAGER;
+  using MAP_MANAGER = ACE_Map_Manager<ACE_HANDLE, ACE_POSIX_Asynch_Connect_Result *, ACE_MT_SYNCH::NULL_MUTEX>;
 
   /// Map of Result pointers that correspond to all the pending connects.
   MAP_MANAGER result_map_;

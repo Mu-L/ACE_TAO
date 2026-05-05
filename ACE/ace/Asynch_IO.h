@@ -63,8 +63,8 @@ struct ACE_TRANSMIT_FILE_BUFFERS
   void *Tail;
   size_t TailLength;
 };
-typedef ACE_TRANSMIT_FILE_BUFFERS* ACE_PTRANSMIT_FILE_BUFFERS;
-typedef ACE_TRANSMIT_FILE_BUFFERS* ACE_LPTRANSMIT_FILE_BUFFERS;
+using ACE_PTRANSMIT_FILE_BUFFERS = ACE_TRANSMIT_FILE_BUFFERS *;
+using ACE_LPTRANSMIT_FILE_BUFFERS = ACE_TRANSMIT_FILE_BUFFERS *;
 
 #   if !defined (ACE_INFINITE)
 #     define ACE_INFINITE LONG_MAX
@@ -1653,7 +1653,7 @@ public:
   private:
     ACE_Handler *handler_;
   };
-  typedef ACE_Refcounted_Auto_Ptr<Proxy, ACE_SYNCH_MUTEX> Proxy_Ptr;
+  using Proxy_Ptr = ACE_Refcounted_Auto_Ptr<Proxy, ACE_MT_SYNCH::MUTEX>;
 
   Proxy_Ptr &proxy ();
 

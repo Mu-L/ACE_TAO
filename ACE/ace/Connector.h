@@ -165,12 +165,12 @@ class ACE_Connector : public ACE_Connector_Base<SVC_HANDLER>, public ACE_Service
 {
 public:
   // Useful STL-style traits.
-  typedef typename SVC_HANDLER::addr_type addr_type;
-  typedef PEER_CONNECTOR connector_type;
-  typedef SVC_HANDLER handler_type;
-  typedef typename SVC_HANDLER::stream_type stream_type;
-  typedef typename PEER_CONNECTOR::PEER_ADDR peer_addr_type;
-  typedef typename PEER_CONNECTOR::PEER_ADDR PEER_ADDR_TYPEDEF;
+  using addr_type = typename SVC_HANDLER::addr_type;
+  using connector_type = PEER_CONNECTOR;
+  using handler_type = SVC_HANDLER;
+  using stream_type = typename SVC_HANDLER::stream_type;
+  using peer_addr_type = typename PEER_CONNECTOR::PEER_ADDR;
+  using PEER_ADDR_TYPEDEF = typename PEER_CONNECTOR::PEER_ADDR;
 
   /**
    * Initialize a connector.  @a flags indicates how SVC_HANDLER's
@@ -291,7 +291,7 @@ protected:
   int flags_;
 
   // = Helpful typedefs.
-  typedef ACE_NonBlocking_Connect_Handler<SVC_HANDLER> NBCH;
+  using NBCH = ACE_NonBlocking_Connect_Handler<SVC_HANDLER>;
 
   // = The following two methods define the Connector's strategies for
   // creating, connecting, and activating SVC_HANDLER's, respectively.
@@ -409,24 +409,16 @@ class ACE_Strategy_Connector
 {
 public:
   // Useful STL-style traits.
-  typedef ACE_Creation_Strategy<SVC_HANDLER>
-  creation_strategy_type;
-  typedef ACE_Connect_Strategy<SVC_HANDLER, PEER_CONNECTOR>
-  connect_strategy_type;
-  typedef ACE_Concurrency_Strategy<SVC_HANDLER>
-  concurrency_strategy_type;
-  typedef ACE_Connector <SVC_HANDLER, PEER_CONNECTOR>
-  base_type;
+  using creation_strategy_type = ACE_Creation_Strategy<SVC_HANDLER>;
+  using connect_strategy_type = ACE_Connect_Strategy<SVC_HANDLER, PEER_CONNECTOR>;
+  using concurrency_strategy_type = ACE_Concurrency_Strategy<SVC_HANDLER>;
+  using base_type = ACE_Connector<SVC_HANDLER, PEER_CONNECTOR>;
 
   // = Define some useful (old style) traits.
-  typedef ACE_Creation_Strategy<SVC_HANDLER>
-  CREATION_STRATEGY;
-  typedef ACE_Connect_Strategy<SVC_HANDLER, PEER_CONNECTOR>
-  CONNECT_STRATEGY;
-  typedef ACE_Concurrency_Strategy<SVC_HANDLER>
-  CONCURRENCY_STRATEGY;
-  typedef ACE_Connector <SVC_HANDLER, PEER_CONNECTOR>
-  SUPER;
+  using CREATION_STRATEGY = ACE_Creation_Strategy<SVC_HANDLER>;
+  using CONNECT_STRATEGY = ACE_Connect_Strategy<SVC_HANDLER, PEER_CONNECTOR>;
+  using CONCURRENCY_STRATEGY = ACE_Concurrency_Strategy<SVC_HANDLER>;
+  using SUPER = ACE_Connector<SVC_HANDLER, PEER_CONNECTOR>;
 
   /**
    * Initialize a connector.  @a flags indicates how SVC_HANDLER's

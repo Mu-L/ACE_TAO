@@ -497,7 +497,7 @@ ACE_END_VERSIONED_NAMESPACE_DECL
 
 #   elif defined (ACE_HAS_PTHREADS_UNIX98_EXT)
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
-typedef pthread_rwlock_t ACE_rwlock_t;
+using ACE_rwlock_t = pthread_rwlock_t;
 ACE_END_VERSIONED_NAMESPACE_DECL
 #   endif /* ACE_LACKS_RWLOCK_T */
 
@@ -551,7 +551,7 @@ ACE_END_VERSIONED_NAMESPACE_DECL
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
-typedef ACE_thread_mutex_t ACE_recursive_thread_mutex_t;
+using ACE_recursive_thread_mutex_t = ACE_thread_mutex_t;
 #     if defined (ACE_WIN32)
 // Windows has recursive mutexes, but doesn't have condition variables,
 // so there's no built-in support for this. Thus, the condition-related
@@ -564,7 +564,7 @@ struct ACE_recursive_mutex_state
 };
 #     else
 // No need for special handling; just need a type for method signatures.
-typedef int ACE_recursive_mutex_state;
+using ACE_recursive_mutex_state = int;
 #     endif /* ACE_WIN32 */
 
 ACE_END_VERSIONED_NAMESPACE_DECL
@@ -790,7 +790,7 @@ private:
 // = The ACE_Sched_Priority type should be used for platform-
 //   independent thread and process priorities, by convention.
 //   int should be used for OS-specific priorities.
-typedef int ACE_Sched_Priority;
+using ACE_Sched_Priority = int;
 
 # if !defined (ACE_DEFAULT_SYNCH_TYPE)
 #   if defined (ACE_VXWORKS)
@@ -813,10 +813,10 @@ typedef DWORD ACE_id_t;
 typedef int ACE_pri_t;
 #   define ACE_SELF (0)
 #else /* !defined (ACE_WIN32) */
-  typedef int ACE_idtype_t;
-  typedef long ACE_id_t;
+  using ACE_idtype_t = int;
+  using ACE_id_t = long;
 #     define ACE_SELF (-1)
-  typedef short ACE_pri_t;
+  using ACE_pri_t = short;
 #endif /* !defined (ACE_WIN32) */
 
 # if defined (ACE_HAS_TSS_EMULATION)

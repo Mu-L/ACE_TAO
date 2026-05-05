@@ -51,7 +51,7 @@ template <class TQ, class TYPE = ACE_Event_Handler*>
 class ACE_Async_Timer_Queue_Adapter : public ACE_Event_Handler
 {
 public:
-  typedef TQ TIMER_QUEUE;
+  using TIMER_QUEUE = TQ;
 
   /// Constructor
   /**
@@ -121,7 +121,7 @@ class ACE_Thread_Timer_Queue_Adapter : public ACE_Task_Base
 {
 public:
   /// Trait for the underlying queue type.
-  typedef TQ TIMER_QUEUE;
+  using TIMER_QUEUE = TQ;
 
 # if defined (ACE_HAS_DEFERRED_TIMER_COMMANDS)
 

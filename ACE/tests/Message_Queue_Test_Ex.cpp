@@ -710,7 +710,7 @@ class Queue_Ex_Iterator_No_Lock
  : public ACE_Message_Queue_Iterator<ACE_SYNCH, ACE_System_Time_Policy>
 {
  public:
-  typedef ACE_Message_Queue_Ex<User_Class, ACE_SYNCH, ACE_System_Time_Policy> MESSAGE_QUEUE_EX_T;
+  using MESSAGE_QUEUE_EX_T = ACE_Message_Queue_Ex<User_Class, ACE_MT_SYNCH, ACE_System_Time_Policy>;
 
   explicit Queue_Ex_Iterator_No_Lock (MESSAGE_QUEUE_EX_T& queue_in)
     : ACE_Message_Queue_Iterator<ACE_SYNCH, ACE_System_Time_Policy> (queue_in.queue ())

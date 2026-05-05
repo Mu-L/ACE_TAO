@@ -39,7 +39,7 @@ public:
   friend class ACE_UPIPE_Acceptor;
   friend class ACE_UPIPE_Connector;
 
-  typedef ACE_Stream<ACE_SYNCH> MT_Stream;
+  using MT_Stream = ACE_Stream<ACE_MT_SYNCH>;
 
   ACE_UPIPE_Stream ();
 
@@ -100,7 +100,7 @@ public:
   ACE_ALLOC_HOOK_DECLARE;
 
   // = Meta-type info
-  typedef ACE_UPIPE_Addr PEER_ADDR;
+  using PEER_ADDR = ACE_UPIPE_Addr;
 
 private:
   /// To hold the last ACE_Message_Block read out of the stream. Thus

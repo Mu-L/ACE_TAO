@@ -61,14 +61,14 @@ public:
 
   enum {max_charsets_ = 5};
 protected:
-  typedef struct {
+  using registry_entry = struct {
     const char *     desc_;
     const char *     loc_name_;
     ACE_CDR::ULong   codeset_id_;
     ACE_CDR::UShort  num_sets_;
     ACE_CDR::UShort  char_sets_[max_charsets_];
     ACE_CDR::UShort  max_bytes_;
-  } registry_entry;
+  };
 
 private:
   static size_t const num_registry_entries_;

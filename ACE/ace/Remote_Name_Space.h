@@ -27,7 +27,7 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 class ACE_NS_WString;
 
-typedef ACE_Unbounded_Set<ACE_NS_WString> ACE_WSTRING_SET;
+using ACE_WSTRING_SET = ACE_Unbounded_Set<ACE_NS_WString>;
 
 /**
  * @class ACE_Remote_Name_Space

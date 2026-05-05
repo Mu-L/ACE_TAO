@@ -176,11 +176,11 @@ public:
   /// Destructor.
   ~ACE_MEM_IO ();
 
-  typedef enum
+  using Signal_Strategy = enum
   {
     Reactive,
     MT
-  }  Signal_Strategy;
+  };
 
   /**
    * Initialize the MEM_SAP object.

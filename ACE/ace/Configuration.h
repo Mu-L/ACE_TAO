@@ -538,12 +538,8 @@ protected:
 
 // ACE_Allocator version
 
-typedef ACE_Allocator_Adapter <ACE_Malloc <ACE_MMAP_MEMORY_POOL,
-                                           ACE_SYNCH_MUTEX> >
-        PERSISTENT_ALLOCATOR;
-typedef ACE_Allocator_Adapter <ACE_Malloc <ACE_LOCAL_MEMORY_POOL,
-                                           ACE_SYNCH_MUTEX> >
-        HEAP_ALLOCATOR;
+using PERSISTENT_ALLOCATOR = ACE_Allocator_Adapter<ACE_Malloc<ACE_MMAP_Memory_Pool, ACE_MT_SYNCH::MUTEX>>;
+using HEAP_ALLOCATOR = ACE_Allocator_Adapter<ACE_Malloc<ACE_Local_Memory_Pool, ACE_MT_SYNCH::MUTEX>>;
 
 /**
  * @class ACE_Configuration_ExtId
@@ -591,14 +587,8 @@ public:
   const ACE_TCHAR *name ();
 };
 
-typedef ACE_Hash_Map_With_Allocator<ACE_Configuration_ExtId, int>
-        SUBSECTION_MAP;
-typedef ACE_Hash_Map_Manager_Ex<ACE_Configuration_ExtId,
-                                int,
-                                ACE_Hash<ACE_Configuration_ExtId>,
-                                ACE_Equal_To<ACE_Configuration_ExtId>,
-                                ACE_Null_Mutex>
-        SUBSECTION_HASH;
+using SUBSECTION_MAP = ACE_Hash_Map_With_Allocator<ACE_Configuration_ExtId, int>;
+using SUBSECTION_HASH = ACE_Hash_Map_Manager_Ex<ACE_Configuration_ExtId, int, ACE_Hash<ACE_Configuration_ExtId>, ACE_Equal_To<ACE_Configuration_ExtId>, ACE_Null_Mutex>;
 
 /**
  * @class ACE_Configuration_Value_IntId
@@ -649,18 +639,11 @@ public:
   size_t                        length_;
 };
 
-typedef ACE_Hash_Map_With_Allocator<ACE_Configuration_ExtId,
-                                    ACE_Configuration_Value_IntId>
-        VALUE_MAP;
-typedef ACE_Hash_Map_Manager_Ex<ACE_Configuration_ExtId,
-                                ACE_Configuration_Value_IntId,
-                                ACE_Hash<ACE_Configuration_ExtId>,
-                                ACE_Equal_To<ACE_Configuration_ExtId>,
-                                ACE_Null_Mutex>
-        VALUE_HASH;
+using VALUE_MAP = ACE_Hash_Map_With_Allocator<ACE_Configuration_ExtId, ACE_Configuration_Value_IntId>;
+using VALUE_HASH = ACE_Hash_Map_Manager_Ex<ACE_Configuration_ExtId, ACE_Configuration_Value_IntId, ACE_Hash<ACE_Configuration_ExtId>, ACE_Equal_To<ACE_Configuration_ExtId>, ACE_Null_Mutex>;
 
 // Deprecated typedef.  Use the VALUE_HASH::ENTRY trait instead.
-typedef VALUE_HASH::ENTRY VALUE_ENTRY;
+using VALUE_ENTRY = VALUE_HASH::ENTRY;
 
 /**
  * @class ACE_Configuration_Section_IntId
@@ -698,18 +681,11 @@ public:
   SUBSECTION_MAP* section_hash_map_;
 };
 
-typedef ACE_Hash_Map_With_Allocator<ACE_Configuration_ExtId,
-                                    ACE_Configuration_Section_IntId>
-        SECTION_MAP;
-typedef ACE_Hash_Map_Manager_Ex<ACE_Configuration_ExtId,
-                                ACE_Configuration_Section_IntId,
-                                ACE_Hash<ACE_Configuration_ExtId>,
-                                ACE_Equal_To<ACE_Configuration_ExtId>,
-                                ACE_Null_Mutex>
-        SECTION_HASH;
+using SECTION_MAP = ACE_Hash_Map_With_Allocator<ACE_Configuration_ExtId, ACE_Configuration_Section_IntId>;
+using SECTION_HASH = ACE_Hash_Map_Manager_Ex<ACE_Configuration_ExtId, ACE_Configuration_Section_IntId, ACE_Hash<ACE_Configuration_ExtId>, ACE_Equal_To<ACE_Configuration_ExtId>, ACE_Null_Mutex>;
 
 // Deprecated typedef.  Use the SECTION_HASH::ENTRY trait instead.
-typedef SECTION_HASH::ENTRY SECTION_ENTRY;
+using SECTION_ENTRY = SECTION_HASH::ENTRY;
 
 /**
  * @class ACE_Configuration_Section_Key_Heap

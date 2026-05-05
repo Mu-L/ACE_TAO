@@ -60,10 +60,10 @@ class ACE_Acceptor : public ACE_Service_Object
 {
 public:
   // Useful STL-style traits.
-  typedef typename PEER_ACCEPTOR::PEER_ADDR addr_type;
-  typedef PEER_ACCEPTOR acceptor_type;
-  typedef SVC_HANDLER handler_type;
-  typedef typename SVC_HANDLER::stream_type stream_type;
+  using addr_type = typename PEER_ACCEPTOR::PEER_ADDR;
+  using acceptor_type = PEER_ACCEPTOR;
+  using handler_type = SVC_HANDLER;
+  using stream_type = typename SVC_HANDLER::stream_type;
 
   /// "Do-nothing" constructor.
   ACE_Acceptor (ACE_Reactor * = 0,
@@ -281,21 +281,17 @@ class ACE_Strategy_Acceptor
 {
 public:
   // Useful STL-style traits.
-  typedef ACE_Creation_Strategy<SVC_HANDLER>
-          creation_strategy_type;
-  typedef ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR>
-          accept_strategy_type;
-  typedef ACE_Concurrency_Strategy<SVC_HANDLER>
-          concurrency_strategy_type;
-  typedef ACE_Scheduling_Strategy<SVC_HANDLER> scheduling_strategy_type;
-  typedef ACE_Acceptor <SVC_HANDLER, PEER_ACCEPTOR>
-          base_type;
+  using creation_strategy_type = ACE_Creation_Strategy<SVC_HANDLER>;
+  using accept_strategy_type = ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR>;
+  using concurrency_strategy_type = ACE_Concurrency_Strategy<SVC_HANDLER>;
+  using scheduling_strategy_type = ACE_Scheduling_Strategy<SVC_HANDLER>;
+  using base_type = ACE_Acceptor<SVC_HANDLER, PEER_ACCEPTOR>;
 
   // = Define some useful (old style) traits.
-  typedef ACE_Creation_Strategy<SVC_HANDLER> CREATION_STRATEGY;
-  typedef ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR> ACCEPT_STRATEGY;
-  typedef ACE_Concurrency_Strategy<SVC_HANDLER> CONCURRENCY_STRATEGY;
-  typedef ACE_Scheduling_Strategy<SVC_HANDLER> SCHEDULING_STRATEGY;
+  using CREATION_STRATEGY = ACE_Creation_Strategy<SVC_HANDLER>;
+  using ACCEPT_STRATEGY = ACE_Accept_Strategy<SVC_HANDLER, PEER_ACCEPTOR>;
+  using CONCURRENCY_STRATEGY = ACE_Concurrency_Strategy<SVC_HANDLER>;
+  using SCHEDULING_STRATEGY = ACE_Scheduling_Strategy<SVC_HANDLER>;
 
   /// Default constructor.
   ACE_Strategy_Acceptor (const ACE_TCHAR service_name[] = nullptr,
@@ -536,10 +532,10 @@ class ACE_Oneshot_Acceptor : public ACE_Service_Object
 {
 public:
   // Useful STL-style traits.
-  typedef typename PEER_ACCEPTOR::PEER_ADDR addr_type;
-  typedef PEER_ACCEPTOR acceptor_type;
-  typedef SVC_HANDLER handler_type;
-  typedef typename SVC_HANDLER::stream_type stream_type;
+  using addr_type = typename PEER_ACCEPTOR::PEER_ADDR;
+  using acceptor_type = PEER_ACCEPTOR;
+  using handler_type = SVC_HANDLER;
+  using stream_type = typename SVC_HANDLER::stream_type;
 
   /// Constructor.
   ACE_Oneshot_Acceptor ();

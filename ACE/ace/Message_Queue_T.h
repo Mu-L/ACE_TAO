@@ -72,10 +72,8 @@ public:
   friend class ACE_Message_Queue_Reverse_Iterator<ACE_SYNCH_USE, TIME_POLICY>;
 
   // = Traits
-  typedef ACE_Message_Queue_Iterator<ACE_SYNCH_USE, TIME_POLICY>
-          ITERATOR;
-  typedef ACE_Message_Queue_Reverse_Iterator<ACE_SYNCH_USE, TIME_POLICY>
-          REVERSE_ITERATOR;
+  using ITERATOR = ACE_Message_Queue_Iterator<_ACE_SYNCH, TIME_POLICY>;
+  using REVERSE_ITERATOR = ACE_Message_Queue_Reverse_Iterator<_ACE_SYNCH, TIME_POLICY>;
 
   /**
    * @name Initialization methods
@@ -632,7 +630,7 @@ private:
 };
 
 // This typedef is used to get around a compiler bug in g++/vxworks.
-typedef ACE_Message_Queue<ACE_SYNCH> ACE_DEFAULT_MESSAGE_QUEUE_TYPE;
+using ACE_DEFAULT_MESSAGE_QUEUE_TYPE = ACE_Message_Queue<ACE_MT_SYNCH>;
 
 
 /**
@@ -1007,10 +1005,8 @@ public:
   friend class ACE_Message_Queue_Ex_Reverse_Iterator<ACE_MESSAGE_TYPE, ACE_SYNCH_USE, TIME_POLICY>;
 
   // = Traits
-  typedef ACE_Message_Queue_Ex_Iterator<ACE_MESSAGE_TYPE, ACE_SYNCH_USE, TIME_POLICY>
-          ITERATOR;
-  typedef ACE_Message_Queue_Ex_Reverse_Iterator<ACE_MESSAGE_TYPE, ACE_SYNCH_USE, TIME_POLICY>
-          REVERSE_ITERATOR;
+  using ITERATOR = ACE_Message_Queue_Ex_Iterator<ACE_MESSAGE_TYPE, _ACE_SYNCH, TIME_POLICY>;
+  using REVERSE_ITERATOR = ACE_Message_Queue_Ex_Reverse_Iterator<ACE_MESSAGE_TYPE, _ACE_SYNCH, TIME_POLICY>;
 
   /**
    * @name Initialization methods

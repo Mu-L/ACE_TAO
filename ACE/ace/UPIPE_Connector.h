@@ -89,8 +89,8 @@ public:
   bool reset_new_handle (ACE_HANDLE handle);
 
   // = Meta-type info
-  typedef ACE_UPIPE_Addr PEER_ADDR;
-  typedef ACE_UPIPE_Stream PEER_STREAM;
+  using PEER_ADDR = ACE_UPIPE_Addr;
+  using PEER_STREAM = ACE_UPIPE_Stream;
 
   /// Dump the state of an object.
   void dump () const;
