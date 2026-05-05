@@ -151,7 +151,7 @@ public:
                     int reuse_addr = 1);
 
   /// Close down the Acceptor's resources.
-  virtual ~ACE_Acceptor ();
+  ~ACE_Acceptor () override;
 
   /// Return the underlying PEER_ACCEPTOR object.
   virtual operator PEER_ACCEPTOR &() const;
@@ -160,7 +160,7 @@ public:
   virtual PEER_ACCEPTOR &acceptor () const;
 
   /// Returns the listening acceptor's {ACE_HANDLE}.
-  virtual ACE_HANDLE get_handle () const;
+  ACE_HANDLE get_handle () const override;
 
   /// Close down the Acceptor
   virtual int close ();
@@ -212,31 +212,31 @@ protected:
   // = Demultiplexing hooks.
   /// Perform termination activities when {this} is removed from the
   /// {reactor}.
-  virtual int handle_close (ACE_HANDLE = ACE_INVALID_HANDLE,
-                            ACE_Reactor_Mask = ACE_Event_Handler::ALL_EVENTS_MASK);
+  int handle_close (ACE_HANDLE = ACE_INVALID_HANDLE,
+                            ACE_Reactor_Mask = ACE_Event_Handler::ALL_EVENTS_MASK) override;
 
   /// Accepts all pending connections from clients, and creates and
   /// activates SVC_HANDLERs.
-  virtual int handle_input (ACE_HANDLE);
+  int handle_input (ACE_HANDLE) override;
 
   // = Dynamic linking hooks.
   /// Default version does no work and returns -1.  Must be overloaded
   /// by application developer to do anything meaningful.
-  virtual int init (int argc, ACE_TCHAR *argv[]);
+  int init (int argc, ACE_TCHAR *argv[]) override;
 
   /// Calls {handle_close}.
-  virtual int fini ();
+  int fini () override;
 
   /// Default version returns address info in {buf}.
-  virtual int info (ACE_TCHAR **buf, size_t) const;
+  int info (ACE_TCHAR **buf, size_t) const override;
 
 public:
   // = Service management hooks.
   /// This method calls {Reactor::suspend}.
-  virtual int suspend ();
+  int suspend () override;
 
   /// This method calls {Reactor::resume}.
-  virtual int resume ();
+  int resume () override;
 
 protected:
   /// Concrete factory for accepting connections from clients...
@@ -569,7 +569,7 @@ public:
             ACE_Concurrency_Strategy<SVC_HANDLER> * = nullptr);
 
   /// Close down the {Oneshot_Acceptor}.
-  virtual ~ACE_Oneshot_Acceptor ();
+  ~ACE_Oneshot_Acceptor () override;
 
   // = Explicit factory operation.
   /// Create a {SVC_HANDLER}, accept the connection into the
@@ -619,41 +619,41 @@ protected:
 
   // = Demultiplexing hooks.
   /// Returns the listening acceptor's {ACE_HANDLE}.
-  virtual ACE_HANDLE get_handle () const;
+  ACE_HANDLE get_handle () const override;
 
   /// Perform termination activities when {this} is removed from the
   /// {reactor}.
-  virtual int handle_close (ACE_HANDLE = ACE_INVALID_HANDLE,
-                            ACE_Reactor_Mask = ACE_Event_Handler::ALL_EVENTS_MASK);
+  int handle_close (ACE_HANDLE = ACE_INVALID_HANDLE,
+                            ACE_Reactor_Mask = ACE_Event_Handler::ALL_EVENTS_MASK) override;
 
   /// Accept one connection from a client and activates the
   /// SVC_HANDLER.
-  virtual int handle_input (ACE_HANDLE);
+  int handle_input (ACE_HANDLE) override;
 
   /// Called when an acceptor times out...
-  virtual int handle_timeout (const ACE_Time_Value &tv,
-                              const void *arg);
+  int handle_timeout (const ACE_Time_Value &tv,
+                              const void *arg) override;
 
   // = Dynamic linking hooks.
   /// Default version does no work and returns -1.  Must be overloaded
   /// by application developer to do anything meaningful.
-  virtual int init (int argc, ACE_TCHAR *argv[]);
+  int init (int argc, ACE_TCHAR *argv[]) override;
 
   /// Default version does no work and returns -1.  Must be overloaded
   /// by application developer to do anything meaningful.
-  virtual int fini ();
+  int fini () override;
 
   /// Default version returns address info in {buf}.
-  virtual int info (ACE_TCHAR **, size_t) const;
+  int info (ACE_TCHAR **, size_t) const override;
 
   // = Service management hooks.
   /// Default version does no work and returns -1.  Must be overloaded
   /// by application developer to do anything meaningful.
-  virtual int suspend ();
+  int suspend () override;
 
   /// Default version does no work and returns -1.  Must be overloaded
   /// by application developer to do anything meaningful.
-  virtual int resume ();
+  int resume () override;
 
 private:
   /**

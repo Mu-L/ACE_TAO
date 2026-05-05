@@ -54,7 +54,7 @@ public:
             ACE_Message_Queue<ACE_SYNCH_USE, TIME_POLICY> *mq = nullptr);
 
   /// Destructor.
-  virtual ~ACE_Task ();
+  ~ACE_Task () override;
 
   /// Gets the message queue associated with this task.
   ACE_Message_Queue<ACE_SYNCH_USE, TIME_POLICY> *msg_queue ();

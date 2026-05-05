@@ -770,7 +770,7 @@ public:
                                   ACE_Recyclable_State state = ACE_RECYCLABLE_UNKNOWN);
 
   /// Destructor
-  virtual ~ACE_Refcounted_Hash_Recyclable ();
+  ~ACE_Refcounted_Hash_Recyclable () override;
 
   /// Compares two instances.
   bool operator== (const ACE_Refcounted_Hash_Recyclable<T> &rhs) const;
@@ -780,7 +780,7 @@ public:
 
 protected:
   /// Computes and returns hash value.
-  u_long hash_i () const;
+  u_long hash_i () const override;
 
   T t_;
 };
@@ -834,7 +834,7 @@ public:
                                bool delete_lock = false);
 
   /// Destructor
-  virtual ~ACE_Cached_Connect_Strategy ();
+  ~ACE_Cached_Connect_Strategy () override;
 
   /// This methods allow you to change the strategies used by the
   /// cached connector.
@@ -888,29 +888,29 @@ public:
                                    int perms);
 
   /// Remove from cache.
-  virtual int purge (const void *recycling_act);
+  int purge (const void *recycling_act) override;
 
   /// Add to cache.
-  virtual int cache (const void *recycling_act);
+  int cache (const void *recycling_act) override;
 
   /// Get/Set <recycle_state>.
-  virtual int recycle_state (const void *recycling_act,
-                             ACE_Recyclable_State new_state);
-  virtual ACE_Recyclable_State recycle_state (const void *recycling_act) const;
+  int recycle_state (const void *recycling_act,
+                             ACE_Recyclable_State new_state) override;
+  ACE_Recyclable_State recycle_state (const void *recycling_act) const override;
 
   /// Mark as closed.
-  virtual int mark_as_closed (const void *recycling_act);
+  int mark_as_closed (const void *recycling_act) override;
 
   /**
    * Mark as closed (non-locking version). This method needs to be public
    * as it is used in the cleanup of handlers where teh locked version causes
    * a deadlock.
    */
-  virtual int mark_as_closed_i (const void *recycling_act);
+  int mark_as_closed_i (const void *recycling_act) override;
 
   /// Cleanup hint and reset <*act_holder> to zero if <act_holder != 0>.
-  virtual int cleanup_hint (const void *recycling_act,
-                            void **act_holder = nullptr);
+  int cleanup_hint (const void *recycling_act,
+                            void **act_holder = nullptr) override;
 
   // = Traits for managing the map
   typedef ACE_Refcounted_Hash_Recyclable<ACE_PEER_CONNECTOR_ADDR>

@@ -78,7 +78,7 @@ public:
   ACE_Task_Ex &operator= (ACE_Task_Ex &&) = delete;
 
   /// Destructor.
-  virtual ~ACE_Task_Ex ();
+  ~ACE_Task_Ex () override;
 
   /// Gets the message queue associated with this task.
   MESSAGE_QUEUE_EX *msg_queue ();

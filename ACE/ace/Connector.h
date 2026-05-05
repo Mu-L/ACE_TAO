@@ -64,7 +64,7 @@ public:
                                    long timer_id);
 
   /// Destructor.
-  ~ACE_NonBlocking_Connect_Handler ();
+  ~ACE_NonBlocking_Connect_Handler () override;
 
   /// Close up and return underlying SVC_HANDLER through @c sh.
   /**
@@ -96,24 +96,24 @@ public:
   void timer_id (long timer_id);
 
   /// Called by ACE_Reactor when asynchronous connections fail.
-  virtual int handle_input (ACE_HANDLE);
+  int handle_input (ACE_HANDLE) override;
 
   /// Called by ACE_Dev_Poll_Reactor when asynchronous connections fail.
-  virtual int handle_close (ACE_HANDLE, ACE_Reactor_Mask);
+  int handle_close (ACE_HANDLE, ACE_Reactor_Mask) override;
 
   /// Called by ACE_Reactor when asynchronous connections succeed.
-  virtual int handle_output (ACE_HANDLE);
+  int handle_output (ACE_HANDLE) override;
 
   /// Called by ACE_Reactor when asynchronous connections suceeds (on
   /// some platforms only).
-  virtual int handle_exception (ACE_HANDLE fd);
+  int handle_exception (ACE_HANDLE fd) override;
 
   /// This method is called if a connection times out before
   /// completing.
-  virtual int handle_timeout (const ACE_Time_Value &tv, const void *arg);
+  int handle_timeout (const ACE_Time_Value &tv, const void *arg) override;
 
   /// Should Reactor resume us if we have been suspended before the upcall?
-  virtual int resume_handler ();
+  int resume_handler () override;
 
   /// Dump the state of an object.
   void dump () const;
@@ -191,7 +191,7 @@ public:
                     int flags = 0);
 
   /// Shutdown a connector and release resources.
-  virtual ~ACE_Connector ();
+  ~ACE_Connector () override;
 
   // = Connection establishment methods.
 
@@ -270,10 +270,10 @@ public:
                                        SVC_HANDLER *svc_handler);
 
   /// Set Reactor.
-  virtual void reactor (ACE_Reactor *reactor);
+  void reactor (ACE_Reactor *reactor) override;
 
   /// Get Reactor.
-  virtual ACE_Reactor *reactor () const;
+  ACE_Reactor *reactor () const override;
 
   /// Dump the state of an object.
   void dump () const;
@@ -361,22 +361,22 @@ protected:
   // = Dynamic linking hooks.
   /// Default version does no work and returns -1.  Must be overloaded
   /// by application developer to do anything meaningful.
-  virtual int init (int argc, ACE_TCHAR *argv[]);
+  int init (int argc, ACE_TCHAR *argv[]) override;
 
   /// Calls handle_close() to shutdown the Connector gracefully.
-  virtual int fini ();
+  int fini () override;
 
   /// Default version returns address info in @a buf.
-  virtual int info (ACE_TCHAR **strp, size_t length) const;
+  int info (ACE_TCHAR **strp, size_t length) const override;
 
   // = Service management hooks.
   /// Default version does no work and returns -1.  Must be overloaded
   /// by application developer to do anything meaningful.
-  virtual int suspend ();
+  int suspend () override;
 
   /// Default version does no work and returns -1.  Must be overloaded
   /// by application developer to do anything meaningful.
-  virtual int resume ();
+  int resume () override;
 
 private:
   /// This is the peer connector factory.
