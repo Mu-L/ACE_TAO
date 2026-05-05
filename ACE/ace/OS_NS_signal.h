@@ -132,13 +132,13 @@ struct ACE_Export siginfo_t
 #if !defined (ACE_WIN32)
 extern "C"
 {
-  using ACE_SIGNAL_C_FUNC = void (*)(int, siginfo_t *, void *);
+  typedef void (*ACE_SIGNAL_C_FUNC)(int, siginfo_t *, void *);
 }
 #endif /* ACE_WIN32 */
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
-using ACE_SIGACTION = struct sigaction;
+typedef struct sigaction ACE_SIGACTION;
 
 namespace ACE_OS {
   //@{ @name A set of wrappers for Signals.
