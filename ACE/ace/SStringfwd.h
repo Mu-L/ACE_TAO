@@ -27,7 +27,7 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 template <class ACE_CHAR_T> class ACE_String_Base;  // Forward declaration.
 
-using ACE_WSTRING_TYPE = wchar_t;
+using ACE_WSTRING_TYPE = ACE_WCHAR_T;
 
 using ACE_CString = ACE_String_Base<char>;
 using ACE_WString = ACE_String_Base<ACE_WSTRING_TYPE>;

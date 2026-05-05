@@ -180,7 +180,7 @@ public:
   using Boolean = bool;
   using Octet = ACE_Byte;
   using Char = char;
-  using WChar = wchar_t;
+  using WChar = ACE_WCHAR_T;
   using Short = ACE_INT16;
   using UShort = ACE_UINT16;
   using Long = ACE_INT32;

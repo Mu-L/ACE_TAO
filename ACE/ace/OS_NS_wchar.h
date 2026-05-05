@@ -37,7 +37,7 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 namespace ACE_OS
 {
-  using WChar = wchar_t;
+  using WChar = ACE_WCHAR_T;
 
 #if defined (ACE_HAS_WCHAR)
   ACE_NAMESPACE_INLINE_FUNCTION
