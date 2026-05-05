@@ -14,16 +14,16 @@ namespace DynamicAny {
 }
 
 struct TAO_DynCommon : virtual DynamicAny::DynAny {
-  virtual ~TAO_DynCommon()
+  ~TAO_DynCommon() override
   {
     ACE_DEBUG ((LM_DEBUG, ACE_TEXT("~TAO_DynCommon %@\n"), this));
   }
 };
 struct TAO_DynAny_i : virtual TAO_DynCommon, virtual DynamicAny::DynAny {
-    virtual ~TAO_DynAny_i() { ACE_DEBUG ((LM_DEBUG, ACE_TEXT("~TAO_DynAny_i %@\n"), this)); }
+    ~TAO_DynAny_i() override { ACE_DEBUG ((LM_DEBUG, ACE_TEXT("~TAO_DynAny_i %@\n"), this)); }
 };
 struct TAO_DynValueCommon_i : virtual TAO_DynAny_i, virtual DynamicAny::DynValueCommon {
-    virtual ~TAO_DynValueCommon_i() { ACE_DEBUG ((LM_DEBUG, ACE_TEXT("~TAO_DynValueCommon_i %@\n"), this)); }
+    ~TAO_DynValueCommon_i() override { ACE_DEBUG ((LM_DEBUG, ACE_TEXT("~TAO_DynValueCommon_i %@\n"), this)); }
 };
 // ============================================================
 // CreateDynAnyUtils<T>

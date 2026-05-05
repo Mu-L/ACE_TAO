@@ -159,8 +159,8 @@ inc_tmo (void *w, XtIntervalId *)
 class EV_handler : public ACE_Event_Handler
 {
 public:
-  virtual int handle_timeout (const ACE_Time_Value &,
-                              const void *arg)
+  int handle_timeout (const ACE_Time_Value &,
+                              const void *arg) override
   {
     char new_string[80];
     ACE_OS::snprintf (new_string, 80, "Events: [%d] [%d] [%d]",

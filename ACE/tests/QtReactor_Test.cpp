@@ -119,7 +119,7 @@ class DgramHandler: public ACE_Event_Handler
 {
 public:
   DgramHandler (ACE_Reactor *p_reactor = nullptr);
-  virtual ~DgramHandler ();
+  ~DgramHandler () override;
 
   //FUZZ: disable check_for_lack_ACE_OS
   int  open (const ACE_INET_Addr &local,
@@ -128,10 +128,10 @@ public:
              int reuse_addr=0);
   //FUZZ: enable check_for_lack_ACE_OS
 
-  virtual ACE_HANDLE get_handle () const;
-  virtual int handle_input (ACE_HANDLE handle);
-  virtual int handle_close (ACE_HANDLE handle,ACE_Reactor_Mask close_mask);
-  virtual int handle_timeout (const ACE_Time_Value &current_time, const void *act=nullptr);
+  ACE_HANDLE get_handle () const override;
+  int handle_input (ACE_HANDLE handle) override;
+  int handle_close (ACE_HANDLE handle,ACE_Reactor_Mask close_mask) override;
+  int handle_timeout (const ACE_Time_Value &current_time, const void *act=nullptr) override;
   int         dgramsSent () const;
   int         dgramsReceived () const;
   int         timeoutsTriggered () const;

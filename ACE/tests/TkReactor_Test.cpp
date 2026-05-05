@@ -159,8 +159,8 @@ inc_tmo (ClientData client_data)
 class EV_handler : public ACE_Event_Handler
 {
 public:
-  virtual int handle_timeout (const ACE_Time_Value &,
-                              const void *arg)
+  int handle_timeout (const ACE_Time_Value &,
+                              const void *arg) override
   {
     char new_string[80];
     ACE_OS::snprintf (new_string, 80, "Events: [%d] [%d] [%d]",
@@ -180,7 +180,7 @@ class Connection_Handler : public ACE_Svc_Handler<ACE_SOCK_STREAM, ACE_NULL_SYNC
 {
 public:
   //FUZZ: disable check_for_lack_ACE_OS
-  virtual int open (void *)
+  int open (void *) override
   {
   //FUZZ: enable check_for_lack_ACE_OS
     char buf[100];
