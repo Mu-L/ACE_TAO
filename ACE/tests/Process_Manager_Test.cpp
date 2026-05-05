@@ -543,9 +543,9 @@ run_main (int argc, ACE_TCHAR *argv[])
   Process_Task task1 (argc > 0 ? argv[0] : ACE_TEXT ("Process_Manager_Test"), mgr, 3);
   Process_Task task2 (argc > 0 ? argv[0] : ACE_TEXT ("Process_Manager_Test"), mgr, 2);
   Process_Task task3 (argc > 0 ? argv[0] : ACE_TEXT ("Process_Manager_Test"), mgr, 1);
-  task1.open (0);
-  task2.open (0);
-  task3.open (0);
+  task1.open (nullptr);
+  task2.open (nullptr);
+  task3.open (nullptr);
 
   while (running_tasks!=0)
     {

@@ -733,10 +733,10 @@ build_config_object (ACE_Configuration& cfg)
                             80))
     return -15;
 
-  ACE_TString string((ACE_TCHAR*) 0);// = '0';
+  ACE_TString string((ACE_TCHAR*) nullptr);// = '0';
   // Try to set the unnamed, default value.
   if (cfg.set_string_value (LoggerSection,
-                            0,//string.c_str (),//0, //ACE_TEXT ("x"),
+                            nullptr,//string.c_str (),//0, //ACE_TEXT ("x"),
                             ACE_TString (ACE_TEXT ("some string"))))
     ACE_ERROR_RETURN ((LM_ERROR,
                        ACE_TEXT ("could not set value with null name\n")),
@@ -745,7 +745,7 @@ build_config_object (ACE_Configuration& cfg)
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("here\n")));
 
   //ACE_TString string;
-  ACE_TString name ((ACE_TCHAR*)0);
+  ACE_TString name ((ACE_TCHAR*)nullptr);
   if (cfg.get_string_value (LoggerSection,
                             name.c_str (), //0, //ACE_TEXT ("x"),
                             string))

@@ -43,7 +43,7 @@ test (void *args)
 {
   ACE_TEST_MUTEX *mutex = (ACE_TEST_MUTEX *) args;
   ACE_UNUSED_ARG (mutex); // Suppress ghs warning about unused local "mutex".
-  u_int seed = (u_int) ACE_OS::time (0);
+  u_int seed = (u_int) ACE_OS::time (nullptr);
 
   for (size_t i = 0; i < ACE_MAX_ITERATIONS / 2; i++)
     {
@@ -88,7 +88,7 @@ test (void *args)
               ACE_ERROR ((LM_ERROR,
                           ACE_TEXT ("(%P|%t) %p\n%a"),
                           ACE_TEXT ("mutex timeout failed\n")));
-              return 0;
+              return nullptr;
             }
         }
       else
@@ -230,7 +230,7 @@ test (void *args)
       // FUZZ: enable check_for_ACE_Guard
     }
 
-  return 0;
+  return nullptr;
 }
 #endif /* ACE_HAS_THREADS */
 

@@ -135,7 +135,7 @@ run_main (int, ACE_TCHAR *[])
     }
 
   ACE_Thread_Manager *thread_manager = reactor_task.thr_mgr ();
-  if (thread_manager == 0)
+  if (thread_manager == nullptr)
     {
       ACE_ERROR_RETURN ((LM_ERROR,
              ACE_TEXT ("(%P|%t) No Thread Manager found.\n"))

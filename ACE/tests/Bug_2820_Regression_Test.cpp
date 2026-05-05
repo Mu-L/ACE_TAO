@@ -71,7 +71,7 @@ run_main (int, ACE_TCHAR *[])
   reactor.reset ();
 
   // Reset the reactor in the event handler, since it is gone.p
-  v->reactor(0);
+  v->reactor(nullptr);
 
   ACE_Event_Handler::Reference_Count pos_release_count =
     v->add_reference();

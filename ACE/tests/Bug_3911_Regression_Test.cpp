@@ -71,7 +71,7 @@ public:
 
   static ShmemMan* getInstance(bool no_crash)
   {
-    if (c_instance == 0)
+    if (c_instance == nullptr)
     {
       c_instance = new ShmemMan(no_crash);
     }
@@ -88,7 +88,7 @@ public:
 
   void* getMemoryBlock(const char* block_name, unsigned int block_size)
   {
-    void* shared = 0;
+    void* shared = nullptr;
 
     ACE_DEBUG((LM_INFO, ACE_TEXT("errno = %d. Looking for a Shared Memory block named %C\n"),
                         ACE_OS::last_error(),
@@ -130,7 +130,7 @@ public:
   };
 };
 
-ShmemMan* ShmemMan::c_instance = 0;
+ShmemMan* ShmemMan::c_instance = nullptr;
 
 const char* block_name = "block_1";
 

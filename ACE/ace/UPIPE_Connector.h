@@ -54,7 +54,7 @@ public:
    */
   ACE_UPIPE_Connector (ACE_UPIPE_Stream &new_stream,
                        const ACE_UPIPE_Addr &addr,
-                       ACE_Time_Value *timeout = 0,
+                       ACE_Time_Value *timeout = nullptr,
                        const ACE_Addr &local_sap = ACE_Addr::sap_any,
                        int reuse_addr = 0,
                        int flags = O_RDWR,
@@ -79,7 +79,7 @@ public:
    */
   int connect (ACE_UPIPE_Stream &new_stream,
                const ACE_UPIPE_Addr &addr,
-               ACE_Time_Value *timeout = 0,
+               ACE_Time_Value *timeout = nullptr,
                const ACE_Addr &local_sap = ACE_Addr::sap_any,
                int reuse_addr = 0,
                int flags = O_RDWR,

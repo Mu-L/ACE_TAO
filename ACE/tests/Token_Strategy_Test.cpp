@@ -34,7 +34,7 @@ public:
   ~Token_Strategy_Test () override;
 
   //FUZZ: disable check_for_lack_ACE_OS
-  int open (void *a = 0) override;
+  int open (void *a = nullptr) override;
   //FUZZ: enable check_for_lack_ACE_OS
 
   int svc () override;

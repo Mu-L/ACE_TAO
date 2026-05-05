@@ -265,7 +265,7 @@ test<REACTOR_IMPLEMENTATION>::test (int extra_iterations_needed)
       ACE_Reactor reactor (&impl, 0);
 
       notify (reactor,
-              0,
+              nullptr,
               extra_iterations_needed);
     }
 

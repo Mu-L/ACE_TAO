@@ -131,7 +131,7 @@ run_main (int, ACE_TCHAR *[])
 
   Timer_Handler timer_handler;
   ACE_Reactor::instance()->schedule_timer (&timer_handler,
-                                           0,
+                                           nullptr,
                                            ACE_Time_Value(0));
 
   My_Task task;

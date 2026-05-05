@@ -35,7 +35,7 @@ void* spawn_ace_task (void*)
   inheritor.activate ();
   inheritor.wait ();
 
-  return 0;
+  return nullptr;
 }
 
 bool test_inherited_attributes ()
@@ -48,11 +48,11 @@ bool test_inherited_attributes ()
   // stallions 2009/02/05
   pthread_t parent;
 
-  if (pthread_create (&parent, 0, spawn_ace_task, 0) != 0)
+  if (pthread_create (&parent, nullptr, spawn_ace_task, nullptr) != 0)
     {
       return false;
     }
-  pthread_join (parent, 0);
+  pthread_join (parent, nullptr);
 
   return true;
 }
