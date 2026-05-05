@@ -84,7 +84,7 @@ public:
    * are used by the strategy and is transparent to the user of this
    * class.
    */
-  using CACHE_VALUE = int;
+  using CACHE_VALUE = std::pair<VALUE, ATTRIBUTES>;
 
   /// Initialize a <Cache_Map_Manager> with <caching_strategy> and
   /// @a size entries.
@@ -242,7 +242,7 @@ public:
   /// The actual value mapped to the key in the cache. The <attributes>
   /// are used by the strategy and is transparent to the cache user.
   using value_type = ACE_Reference_Pair<KEY, VALUE>;
-  using CACHE_VALUE = int;
+  using CACHE_VALUE = std::pair <VALUE, ATTRIBUTES>;
 
   // = Initialisation and termination methods.
 
@@ -315,7 +315,7 @@ public:
   /// The actual value mapped to the key in the cache. The <attributes>
   /// are used by the strategy and is transparent to the cache user.
   using value_type = ACE_Reference_Pair<KEY, VALUE>;
-  using CACHE_VALUE = int;
+  using CACHE_VALUE = std::pair <VALUE, ATTRIBUTES>;
 
   // = Initialisation and termination methods.
 
