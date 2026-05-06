@@ -203,7 +203,7 @@ sender (void *arg)
       socks[i].enable (ACE_NONBLOCK);
     }
   if (i < opt_nconnections)
-    return nullptr;
+    return ACE_THR_FUNC_RETURN_NULL;
 
   // Keep blasting data on all possible connections until this thread
   // is canceled. If we manage to overrun the receiver on all sockets,
@@ -248,7 +248,7 @@ sender (void *arg)
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) Done sending.\n")));
   for (i = 0; i < opt_nconnections; i++)
     socks[i].close ();
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 ACE_THR_FUNC_RETURN
@@ -263,7 +263,7 @@ reactor_loop (void *p)
     ACE_ERROR ((LM_ERROR, ACE_TEXT ("(%t) %p\n"), ACE_TEXT ("reactor")));
   else
     ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) reactor thread %d ending\n"), me));
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 void

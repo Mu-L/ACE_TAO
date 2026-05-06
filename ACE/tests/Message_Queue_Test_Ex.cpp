@@ -542,7 +542,7 @@ MQ_Ex_N_Tester::receiver (void *args)
 
   delete [] receive_block_p;
 
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 ACE_THR_FUNC_RETURN
@@ -573,7 +573,7 @@ MQ_Ex_N_Tester::sender (void *args)
           return (ACE_THR_FUNC_RETURN) -1;
         }
     }
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 #endif /* ACE_HAS_THREADS */

@@ -517,7 +517,7 @@ server_worker (void *p)
               ACE_TEXT ("(%t) Reactor event loop finished ")
               ACE_TEXT ("successfully.\n")));
 
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 // ----------------------------------------------------

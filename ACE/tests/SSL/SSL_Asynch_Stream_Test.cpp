@@ -455,7 +455,7 @@ proactor_loop (void *)
 
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("(%t) Done handling events.\n")));
 
-  return 0;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 static ACE_THR_FUNC_RETURN
@@ -488,7 +488,7 @@ start_clients (void *)
         }
     }
 
-  return 0;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 int

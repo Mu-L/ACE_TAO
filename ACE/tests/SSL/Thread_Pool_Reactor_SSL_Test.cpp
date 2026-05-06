@@ -189,7 +189,7 @@ svr_worker (void *)
   ACE_DEBUG ((LM_DEBUG,
               "(%t) I am done handling events. Bye, bye\n"));
 
-  return 0;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 static ACE_THR_FUNC_RETURN
@@ -232,7 +232,7 @@ cli_worker (void *arg)
       stream.close ();
     }
 
-  return 0;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 static ACE_THR_FUNC_RETURN
@@ -279,7 +279,7 @@ worker (void *)
 
   stream.close ();
 
-  return 0;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 int

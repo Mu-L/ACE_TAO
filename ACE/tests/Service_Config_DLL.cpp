@@ -32,7 +32,7 @@ invoke_service_config (void *arg)
                 ACE_TEXT ("\"%s\"\n"),
                 directive));
 
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 Service_Config_DLL::Service_Config_DLL ()

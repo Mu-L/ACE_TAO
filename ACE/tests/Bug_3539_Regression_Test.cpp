@@ -60,7 +60,7 @@ check_tss (ObjectWithTSS *o)
       status = 3;
     }
 
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 // This worker function is the entry point for each thread.

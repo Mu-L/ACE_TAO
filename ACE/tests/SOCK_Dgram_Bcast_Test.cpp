@@ -125,7 +125,7 @@ int run_receiver ()
 static ACE_THR_FUNC_RETURN run_thread_receiver (void *)
 {
   receiver_exit_code = run_receiver ();
-  return 0;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 #endif /* !defined (ACE_HAS_PROCESS_SPAWN) && defined (ACE_HAS_THREADS) */
 

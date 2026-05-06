@@ -218,7 +218,7 @@ connect_client (void *arg)
 {
   u_short *sport =  reinterpret_cast <u_short *> (arg);
   run_client (*sport, client_strategy);
-  return 0;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 #endif
 

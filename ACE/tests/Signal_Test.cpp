@@ -156,7 +156,7 @@ synchronous_signal_handler (void *)
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("(%P|%t) synchronous signal handler done\n")));
 
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 // This function arranges to handle signals asynchronously, which is
@@ -183,7 +183,7 @@ asynchronous_signal_handler (void *)
   ACE_Sig_Action sa (sigset, (ACE_SignalHandler)handle_signal);
   ACE_UNUSED_ARG (sa);
 
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 // Function that runs in the child process in its own worker thread.
@@ -243,7 +243,7 @@ worker_child (void *arg)
     }
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("(%P|%t) finished running child\n")));
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 // This function runs the parent process in a separate worker thread.
@@ -320,7 +320,7 @@ worker_parent (void *arg)
 
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("(%P|%t) parent worker done\n")));
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 // This is the driver function that spawns threads to run the test for

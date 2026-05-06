@@ -320,7 +320,7 @@ event_loop(void *arg)
   int s = reactor->run_reactor_event_loop();
 
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("%t: reactor loop done; status %d\n"), s));
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 

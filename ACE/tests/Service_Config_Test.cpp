@@ -633,7 +633,7 @@ nonacethreadentry (void *args)
                 ACE_TEXT ("In thr %t, located Test_Object_1_Thr ")
                 ACE_TEXT ("via ACE_Service_Repository\n")));
 
-  return nullptr;
+  return ACE_THR_FUNC_RETURN_NULL;
 }
 
 void
