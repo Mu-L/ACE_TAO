@@ -64,8 +64,7 @@ public:
 
   // Get/set the underlying handle.
   using GET_HANDLE = ACE_HANDLE (T::*)() const;
-  t;
-using SET_HANDLE = void (T::*)(ACE_HANDLE);
+  using SET_HANDLE = void (T::*)(ACE_HANDLE);
 
   /// Handle I/O events.
   using IO_HANDLER = int (T::*)(ACE_HANDLE);
@@ -75,9 +74,7 @@ using SET_HANDLE = void (T::*)(ACE_HANDLE);
 
   /// Handle close events.
   using CL_HANDLER = int (T::*)(ACE_HANDLE, ACE_Reactor_Mask);
-
-  type;
-using SIG_HANDLER = int (T::*)(int, siginfo_t *, ucontext_t *);
+  using SIG_HANDLER = int (T::*)(int, siginfo_t *, ucontext_t *);
 
   /// Initialize the op_handler.
   ACE_Event_Handler_T (T *op_handler,
