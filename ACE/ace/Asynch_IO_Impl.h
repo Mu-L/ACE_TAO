@@ -306,21 +306,21 @@ public:
   /// This starts off an asynchronous read. Upto @a bytes_to_read will
   /// be read and stored in the @a message_block.
   int read (ACE_Message_Block &message_block,
-                    size_t bytes_to_read,
-                    const void *act,
-                    int priority,
-                    int signal_number) override = 0;
+            size_t bytes_to_read,
+            const void *act,
+            int priority,
+            int signal_number) override = 0;
 
 #if defined (ACE_WIN32)
   /**
   * Same as above but with scatter support, through chaining of composite
   * message blocks using the continuation field.
   */
-  virtual int readv (ACE_Message_Block &message_block,
-                     size_t bytes_to_read,
-                     const void *act,
-                     int priority,
-                     int signal_number) = 0;
+  int readv (ACE_Message_Block &message_block,
+             size_t bytes_to_read,
+             const void *act,
+             int priority,
+             int signal_number) override = 0;
 #endif /* defined (ACE_WIN32) */
 
 protected:
@@ -387,21 +387,21 @@ public:
   /// This starts off an asynchronous write.  Upto @a bytes_to_write
   /// will be written from the @a message_block.
   int write (ACE_Message_Block &message_block,
-                     size_t bytes_to_write,
-                     const void *act,
-                     int priority,
-                     int signal_number) override = 0;
+             size_t bytes_to_write,
+             const void *act,
+             int priority,
+             int signal_number) override = 0;
 
 #if defined (ACE_WIN32)
   /**
   * Same as above but with gather support, through chaining of composite
   * message blocks using the continuation field.
   */
-  virtual int writev (ACE_Message_Block &message_block,
-                      size_t bytes_to_write,
-                      const void *act,
-                      int priority,
-                      int signal_number) = 0;
+  int writev (ACE_Message_Block &message_block,
+              size_t bytes_to_write,
+              const void *act,
+              int priority,
+              int signal_number) override = 0;
 #endif /* defined (ACE_WIN32) */
 
 protected:
