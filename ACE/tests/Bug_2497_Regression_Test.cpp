@@ -41,7 +41,7 @@ public:
       this->open( ACE_TEXT("Test module"),
                   &_writerTask,
                   &_readerTask,
-                  0,
+                  nullptr,
                   M_DELETE_NONE );
     }
 

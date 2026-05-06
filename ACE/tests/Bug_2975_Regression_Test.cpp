@@ -42,7 +42,7 @@ run_main (int, ACE_TCHAR *argv[])
 
   ret = ACE_Service_Config::open(args.argc(), args.argv(),
                                  ACE_DEFAULT_LOGGER_KEY,
-                                 1, 1);
+                                 true, true);
 
   if (0 != ret)
   {

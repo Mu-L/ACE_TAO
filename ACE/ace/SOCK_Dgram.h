@@ -201,7 +201,7 @@ public:
                 ACE_OVERLAPPED_COMPLETION_FUNC func) const;
 
   // = Meta-type info.
-  typedef ACE_INET_Addr PEER_ADDR;
+  using PEER_ADDR = ACE_INET_Addr;
 
   /// Dump the state of an object.
   void dump () const;

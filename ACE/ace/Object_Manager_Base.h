@@ -196,7 +196,7 @@ public:
   ACE_OS_Object_Manager ();
 
   /// Destructor.
-  ~ACE_OS_Object_Manager ();
+  ~ACE_OS_Object_Manager () override;
 
   /// Accessor to singleton instance.
   static ACE_OS_Object_Manager *instance ();

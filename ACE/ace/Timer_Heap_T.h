@@ -40,7 +40,7 @@ template <class TYPE, class FUNCTOR, class ACE_LOCK, typename TIME_POLICY = ACE_
 class ACE_Timer_Heap_Iterator_T : public ACE_Timer_Queue_Iterator_T<TYPE>
 {
 public:
-  typedef ACE_Timer_Heap_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY> Heap;
+  using Heap = ACE_Timer_Heap_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>;
   /// Constructor.
   ACE_Timer_Heap_Iterator_T (Heap &);
 
@@ -88,10 +88,10 @@ template <class TYPE, class FUNCTOR, class ACE_LOCK, typename TIME_POLICY = ACE_
 class ACE_Timer_Heap_T : public ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>
 {
 public:
-  typedef ACE_Timer_Heap_Iterator_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY> HEAP_ITERATOR;
+  using HEAP_ITERATOR = ACE_Timer_Heap_Iterator_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>;
   friend class ACE_Timer_Heap_Iterator_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>;
 
-  typedef ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY> Base_Time_Policy;
+  using Base_Time_Policy = ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>;
 
   /**
    * The Constructor creates a heap with specified number of elements.

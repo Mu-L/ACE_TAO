@@ -21,7 +21,7 @@ run_main (int, ACE_TCHAR *[])
   args.add (ACE_TEXT("MyProgram"), true);
   int ret = ACE_Service_Config::open(args.argc(), args.argv(),
                                      ACE_DEFAULT_LOGGER_KEY,
-                                     1, 1, 1);
+                                     true, true, true);
 
   if (ACE_OS::strcmp (log_msg->program_name (), ACE_TEXT("MyProgram")) != 0)
   {

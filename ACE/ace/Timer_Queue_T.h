@@ -77,7 +77,7 @@ class ACE_Timer_Queue_T
 {
 public:
   /// Type of time policy
-  typedef TIME_POLICY time_policy_t;
+  using time_policy_t = TIME_POLICY;
 
   /**
    * Default constructor. @a upcall_functor is the instance of the

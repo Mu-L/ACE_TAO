@@ -170,17 +170,17 @@ test (ACE_Configuration *config,
 
     if (config->open_section (testsection,
                               ACE_TEXT ("test2"),
-                              1,
+                              true,
                               test2))
       return -16;
     else if (config->open_section (testsection,
                                    ACE_TEXT ("test3"),
-                                   1,
+                                   true,
                                    test3))
       return -17;
     else if (config->open_section (testsection,
                                    ACE_TEXT ("test4"),
-                                   1,
+                                   true,
                                    test4))
       return -18;
   }
@@ -225,7 +225,7 @@ test (ACE_Configuration *config,
   // Remove a subsection
   if (config->remove_section (testsection,
                               ACE_TEXT ("test2"),
-                              0))
+                              false))
     ACE_ERROR_RETURN ((LM_ERROR, ACE_TEXT ("%p (%d)\n"),
                        ACE_TEXT ("remove_section test2"),
                        ACE_OS::last_error ()),
@@ -234,7 +234,7 @@ test (ACE_Configuration *config,
   // Try to remove it again
   if (!config->remove_section (testsection,
                                ACE_TEXT ("test2"),
-                               0))
+                               false))
     return -21;
 
   return 0;
@@ -252,7 +252,7 @@ test (ACE_Configuration *config)
 
     if (config->open_section (root,
                               ACE_TEXT ("test"),
-                              1,
+                              true,
                               testsection))
       return -2;
 
@@ -265,7 +265,7 @@ test (ACE_Configuration *config)
   // has subkeys
   if (!config->remove_section (root,
                                ACE_TEXT ("test"),
-                               0))
+                               false))
     return -22;
 
   {
@@ -275,7 +275,7 @@ test (ACE_Configuration *config)
 
     if (config->open_section (root,
                               ACE_TEXT ("test"),
-                              0,
+                              false,
                               result))
       return -23;
   }
@@ -283,14 +283,14 @@ test (ACE_Configuration *config)
   // Now test the recursive remove.
   if (config->remove_section (root,
                               ACE_TEXT ("test"),
-                              1))
+                              true))
     return -24;
 
   // Make sure its not there
   ACE_Configuration_Section_Key testsectiongone;
   if (!config->open_section (root,
                              ACE_TEXT ("test"),
-                             0,
+                             false,
                              testsectiongone))
     return -25;
 
@@ -306,7 +306,7 @@ test_subkey_path (ACE_Configuration* config)
 
   if (config->open_section (root,
                             ACE_TEXT ("Software\\ACETEST\\test"),
-                            1,
+                            true,
                             testsection))
     return -26;
 
@@ -316,13 +316,13 @@ test_subkey_path (ACE_Configuration* config)
 
   if (config->open_section (root,
                             ACE_TEXT ("Software"),
-                            0,
+                            false,
                             testsection))
     return -27;
 
   if (config->remove_section (testsection,
                               ACE_TEXT ("ACETEST"),
-                              1))
+                              true))
     return -28;
 
   return 0;
@@ -386,7 +386,7 @@ run_tests ()
             section1_seen = 1;
             // Check for values in this section.
             ACE_Configuration_Section_Key sect1;
-            if (cf.open_section (root, sect_name.c_str (), 0, sect1) != 0)
+            if (cf.open_section (root, sect_name.c_str (), false, sect1) != 0)
               ACE_ERROR ((LM_ERROR, ACE_TEXT ("Failed to open section: %s\n"),
                           sect_name.c_str ()));
             else {
@@ -449,7 +449,7 @@ run_tests ()
             section2_seen = 1;
             // Check for values in this section.
             ACE_Configuration_Section_Key sect2;
-            if (cf.open_section (root, sect_name.c_str (), 0, sect2) != 0)
+            if (cf.open_section (root, sect_name.c_str (), false, sect2) != 0)
               ACE_ERROR ((LM_ERROR,
                           ACE_TEXT ("Failed to open section: %s\n"),
                           sect_name.c_str ()));
@@ -660,7 +660,7 @@ build_config_object (ACE_Configuration& cfg)
 
   if (cfg.open_section (root,
                         ACE_TEXT ("network"),
-                        1,
+                        true,
                         NetworkSection))
     return -1;
 
@@ -687,7 +687,7 @@ build_config_object (ACE_Configuration& cfg)
 
   if (cfg.open_section (root,
                         ACE_TEXT ("logger"),
-                        1,
+                        true,
                         LoggerSection))
     return -7;
 
@@ -718,7 +718,7 @@ build_config_object (ACE_Configuration& cfg)
 
   if (cfg.open_section (root,
                         ACE_TEXT ("binary"),
-                        1,
+                        true,
                         BinarySection))
     return -14;
 
@@ -733,10 +733,10 @@ build_config_object (ACE_Configuration& cfg)
                             80))
     return -15;
 
-  ACE_TString string((ACE_TCHAR*) 0);// = '0';
+  ACE_TString string((ACE_TCHAR*) nullptr);// = '0';
   // Try to set the unnamed, default value.
   if (cfg.set_string_value (LoggerSection,
-                            0,//string.c_str (),//0, //ACE_TEXT ("x"),
+                            nullptr,//string.c_str (),//0, //ACE_TEXT ("x"),
                             ACE_TString (ACE_TEXT ("some string"))))
     ACE_ERROR_RETURN ((LM_ERROR,
                        ACE_TEXT ("could not set value with null name\n")),
@@ -745,7 +745,7 @@ build_config_object (ACE_Configuration& cfg)
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("here\n")));
 
   //ACE_TString string;
-  ACE_TString name ((ACE_TCHAR*)0);
+  ACE_TString name ((ACE_TCHAR*)nullptr);
   if (cfg.get_string_value (LoggerSection,
                             name.c_str (), //0, //ACE_TEXT ("x"),
                             string))
@@ -809,7 +809,7 @@ Config_Test::testEquality ()
   ACE_Configuration_Section_Key NewSection;
   if (heap1.open_section (root1,
                           ACE_TEXT ("NewSection"),
-                          1,
+                          true,
                           NewSection))
     ACE_ERROR_RETURN ((LM_ERROR,
                        ACE_TEXT ("Error adding section to heap1\n")),
@@ -838,7 +838,7 @@ Config_Test::testEquality ()
   ACE_Configuration_Section_Key NewSection2;
   if (heap2.open_section (root2,
                           ACE_TEXT ("NewSection"),
-                          1,
+                          true,
                           NewSection2))
     ACE_ERROR_RETURN ((LM_ERROR,
                        ACE_TEXT ("Error adding section to heap2\n")),
@@ -888,7 +888,7 @@ Config_Test::testEquality ()
   ACE_Configuration_Section_Key AnotherNewSection2;
   if (heap2.open_section (root2,
                           ACE_TEXT ("AnotherNewSection"),
-                          1,
+                          true,
                           AnotherNewSection2))
     ACE_ERROR_RETURN ((LM_ERROR,
                        ACE_TEXT ("Error adding second section to heap2\n")),
@@ -915,7 +915,7 @@ Config_Test::testEquality ()
   ACE_Configuration_Section_Key AnotherNewSection1;
   if (heap1.open_section (root1,
                           ACE_TEXT ("AnotherNewSection"),
-                          1,
+                          true,
                           AnotherNewSection1))
     ACE_ERROR_RETURN ((LM_ERROR,
                        ACE_TEXT ("Error adding second section to heap1\n")),
@@ -975,14 +975,14 @@ iniCompare (ACE_Configuration_Heap& fromFile, ACE_Configuration_Heap& original)
       // find that section in the original object
       if (original.open_section (originalRoot,
                                  sectionName.c_str (),
-                                 0,
+                                 false,
                                  originalSection) != 0)
         // If the original object does not contain the section then we
         // are not equal.
         rc = false;
       else if (fromFile.open_section (fromFileRoot,
                                       sectionName.c_str (),
-                                      0,
+                                      false,
                                       fromFileSection) != 0)
         // if there is some error opening the section in the fromFile
         rc = false;
@@ -1113,7 +1113,7 @@ iniCompare (ACE_Configuration_Heap& fromFile, ACE_Configuration_Heap& original)
         // before we move on remove the section from the original.
         original.remove_section (originalRoot,
                                  sectionName.c_str (),
-                                 0); // do not remove subsections.
+                                 false); // do not remove subsections.
 
       ++sectionIndex;
     }// end section while loop
@@ -1141,7 +1141,7 @@ int Config_Test::change_one (ACE_Configuration &cfg, u_int a)
 
   if (cfg.open_section (root,
                         ACE_TEXT ("network"),
-                        1,
+                        true,
                         NetworkSection))
     return -1;
 
@@ -1257,7 +1257,7 @@ Config_Test::testIniFormat ()
   ACE_Configuration_Section_Key NetworkSection;
   if (fromFile.open_section (root,
                              ACE_TEXT ("network"),
-                             1,
+                             true,
                              NetworkSection) == 0)
     {
       this->get_section_integer (fromFile,
@@ -1297,7 +1297,7 @@ Config_Test::testIniFormat ()
   ACE_Configuration_Section_Key LoggerSection;
   if (fromFile.open_section (root,
                              ACE_TEXT ("logger"),
-                             1,
+                             true,
                              LoggerSection) == 0)
     {
       this->get_section_string (fromFile,

@@ -201,7 +201,7 @@ public:
   virtual ACE_Time_Value current_time() = 0;
 
   /// Type of Iterator.
-  typedef ACE_Timer_Queue_Iterator_T<TYPE> ITERATOR;
+  using ITERATOR = ACE_Timer_Queue_Iterator_T<TYPE>;
 
   /// Returns a pointer to this ACE_Timer_Queue's iterator.
   virtual ITERATOR & iter () = 0;

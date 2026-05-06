@@ -206,14 +206,14 @@ public:
    * ACE_Object_Manager.  Returns 0 on success, -1 on failure, and 1
    * if it had already been called.
    */
-  virtual int init ();
+  int init () override;
 
   /**
    * Explicitly destroy the singleton instance of the
    * ACE_Object_Manager.  Returns 0 on success, -1 on failure, and 1
    * if it had already been called.
    */
-  virtual int fini ();
+  int fini () override;
 
   /**
    * Returns true before the ACE_Object_Manager has been constructed.
@@ -422,7 +422,7 @@ public:
   /// be constructed/destructed in <main> with
   /// ACE_HAS_NONSTATIC_OBJECT_MANAGER.
   ACE_Object_Manager ();
-  ~ACE_Object_Manager ();
+  ~ACE_Object_Manager () override;
 
 private:
   /// Singleton pointer.

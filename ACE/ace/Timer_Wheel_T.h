@@ -38,8 +38,8 @@ class ACE_Timer_Wheel_Iterator_T
   : public ACE_Timer_Queue_Iterator_T <TYPE>
 {
 public:
-  typedef ACE_Timer_Wheel_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY> Wheel;
-  typedef ACE_Timer_Node_T<TYPE> Node;
+  using Wheel = ACE_Timer_Wheel_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>;
+  using Node = ACE_Timer_Node_T<TYPE>;
 
   /// Constructor
   ACE_Timer_Wheel_Iterator_T (Wheel &);
@@ -92,13 +92,13 @@ class ACE_Timer_Wheel_T
 {
 public:
   /// Type of iterator
-  typedef ACE_Timer_Wheel_Iterator_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY> Iterator;
+  using Iterator = ACE_Timer_Wheel_Iterator_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>;
   /// Iterator is a friend
   friend class ACE_Timer_Wheel_Iterator_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>;
-  typedef ACE_Timer_Node_T<TYPE> Node;
+  using Node = ACE_Timer_Node_T<TYPE>;
   /// Type inherited from
-  typedef ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY> Base_Timer_Queue;
-  typedef ACE_Free_List<Node> FreeList;
+  using Base_Timer_Queue = ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK, TIME_POLICY>;
+  using FreeList = ACE_Free_List<Node>;
 
   /// Default constructor
   ACE_Timer_Wheel_T (FUNCTOR* upcall_functor = 0, FreeList* freelist = nullptr,

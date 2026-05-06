@@ -371,7 +371,7 @@ public:
   friend class ACE_Unbounded_Stack_Iterator<T>;
 
   // Trait definition.
-  typedef ACE_Unbounded_Stack_Iterator<T> ITERATOR;
+  using ITERATOR = ACE_Unbounded_Stack_Iterator<T>;
 
   // = Initialization, assignment, and termination methods.
   /// Initialize a new stack so that it is empty.  Use user defined
@@ -816,8 +816,8 @@ public:
   friend class ACE_Double_Linked_List_Reverse_Iterator<T>;
 
   // Trait definition.
-  typedef ACE_Double_Linked_List_Iterator<T> ITERATOR;
-  typedef ACE_Double_Linked_List_Reverse_Iterator<T> REVERSE_ITERATOR;
+  using ITERATOR = ACE_Double_Linked_List_Iterator<T>;
+  using REVERSE_ITERATOR = ACE_Double_Linked_List_Reverse_Iterator<T>;
 
   /// construction.  Use user specified allocation strategy
   /// if specified.
@@ -984,7 +984,7 @@ template <class T> class ACE_DLList;
 template <class T> class ACE_DLList_Iterator;
 template <class T> class ACE_DLList_Reverse_Iterator;
 
-typedef ACE_Double_Linked_List<ACE_DLList_Node> ACE_DLList_Base;
+using ACE_DLList_Base = ACE_Double_Linked_List<ACE_DLList_Node>;
 
 /**
  * @class ACE_DLList
@@ -1370,8 +1370,8 @@ public:
   friend class ACE_Fixed_Set_Const_Iterator<T, ACE_SIZE>;
 
   // Trait definitions.
-  typedef ACE_Fixed_Set_Iterator<T, ACE_SIZE> ITERATOR;
-  typedef ACE_Fixed_Set_Const_Iterator<T, ACE_SIZE> CONST_ITERATOR;
+  using ITERATOR = ACE_Fixed_Set_Iterator<T, ACE_SIZE>;
+  using CONST_ITERATOR = ACE_Fixed_Set_Const_Iterator<T, ACE_SIZE>;
 
   /// Default Constructor.
   /**
@@ -1558,7 +1558,7 @@ public:
   friend class ACE_Bounded_Set_Iterator<T>;
 
   // Trait definition.
-  typedef ACE_Bounded_Set_Iterator<T> ITERATOR;
+  using ITERATOR = ACE_Bounded_Set_Iterator<T>;
 
   enum
   {
@@ -1774,7 +1774,7 @@ public:
   friend class ACE_Ordered_MultiSet_Iterator<T>;
 
   // Trait definition.
-  typedef ACE_Ordered_MultiSet_Iterator<T> ITERATOR;
+  using ITERATOR = ACE_Ordered_MultiSet_Iterator<T>;
 
   /// Constructor.  Use user specified allocation strategy
   /// if specified.
@@ -1944,8 +1944,8 @@ class ACE_Array : public ACE_Array_Base<T>
 {
 public:
   // Define a "trait"
-  typedef T TYPE;
-  typedef ACE_Array_Iterator<T> ITERATOR;
+  using TYPE = T;
+  using ITERATOR = ACE_Array_Iterator<T>;
 
   /// Dynamically create an uninitialized array.
   /**

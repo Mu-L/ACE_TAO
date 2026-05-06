@@ -108,7 +108,7 @@ private:
 
     // Create a reactor which doesn't automatically restart
     // upon interruption
-    ACE_TP_Reactor tp_reactor (ACE_TP_Reactor::DEFAULT_SIZE, 0);
+    ACE_TP_Reactor tp_reactor (ACE_TP_Reactor::DEFAULT_SIZE, false);
 
     reactor_task_ready = true;
 
@@ -135,7 +135,7 @@ run_main (int, ACE_TCHAR *[])
     }
 
   ACE_Thread_Manager *thread_manager = reactor_task.thr_mgr ();
-  if (thread_manager == 0)
+  if (thread_manager == nullptr)
     {
       ACE_ERROR_RETURN ((LM_ERROR,
              ACE_TEXT ("(%P|%t) No Thread Manager found.\n"))

@@ -61,7 +61,7 @@ class ACE_Task_Ex : public ACE_Task_Base
 public:
   friend class ACE_Module<ACE_SYNCH_USE, TIME_POLICY>;
   friend class ACE_Module_Type;
-  typedef ACE_Message_Queue_Ex<ACE_MESSAGE_TYPE, ACE_SYNCH_USE, TIME_POLICY> MESSAGE_QUEUE_EX;
+  using MESSAGE_QUEUE_EX = ACE_Message_Queue_Ex<ACE_MESSAGE_TYPE, _ACE_SYNCH, TIME_POLICY>;
 
   // = Initialization/termination methods.
   /**
@@ -78,7 +78,7 @@ public:
   ACE_Task_Ex &operator= (ACE_Task_Ex &&) = delete;
 
   /// Destructor.
-  virtual ~ACE_Task_Ex ();
+  ~ACE_Task_Ex () override;
 
   /// Gets the message queue associated with this task.
   MESSAGE_QUEUE_EX *msg_queue ();
