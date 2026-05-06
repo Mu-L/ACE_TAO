@@ -197,7 +197,7 @@ Event_Loop_Thread::svc ()
   // Simply run the event loop.
   this->reactor_.owner (ACE_Thread::self ());
 
-  while (1)
+  while (true)
     {
       counter++;
 

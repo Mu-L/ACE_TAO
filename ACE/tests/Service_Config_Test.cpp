@@ -436,13 +436,13 @@ testLimits (int , ACE_TCHAR *[])
   one.process_directive (svc_desc1);
   one.process_directive (svc_desc2);
 
-  if (-1 == one.find (ACE_TEXT ("Test_Object_1_More"), nullptr, 0))
+  if (-1 == one.find (ACE_TEXT ("Test_Object_1_More"), nullptr, false))
     {
       ++error;
       ACE_ERROR ((LM_ERROR, ACE_TEXT("Expected to have registered the first service\n")));
     }
 
-  if (-1 == one.find (ACE_TEXT ("Test_Object_2_More"), nullptr, 0))
+  if (-1 == one.find (ACE_TEXT ("Test_Object_2_More"), nullptr, false))
     {
       ++error;
       ACE_ERROR ((LM_ERROR, ACE_TEXT("Expected to have registered the second service\n")));
@@ -451,7 +451,7 @@ testLimits (int , ACE_TCHAR *[])
   {
     ACE_GUARD (ACE_SYNCH_RECURSIVE_MUTEX, ace_mon, one.current_service_repository ()->lock ());
 
-    ACE_Service_Repository_Iterator sri (*one.current_service_repository (), 0);
+    ACE_Service_Repository_Iterator sri (*one.current_service_repository (), false);
 
     size_t index = 0;
     for (const ACE_Service_Type *sr;

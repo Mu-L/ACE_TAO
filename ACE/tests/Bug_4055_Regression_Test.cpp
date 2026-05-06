@@ -252,7 +252,7 @@ bool test_timer (ACE_Condition_Thread_Mutex& condition_, ACE_Time_Value& waittim
       if (condition_.wait (&waittime) != -1 || errno != ETIME)
         {
           ACE_ERROR ((LM_ERROR, "ERROR: No errno or return -1\n"));
-          status = 1;
+          status = true;
         }
       ACE_DEBUG((LM_INFO,
                   "(%P|%t) Condition wait returned at %#T.\n", &waittime));

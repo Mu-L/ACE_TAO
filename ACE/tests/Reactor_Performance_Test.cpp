@@ -80,7 +80,7 @@ Read_Handler::handle_input (ACE_HANDLE handle)
   ACE_UNUSED_ARG (handle);
   char buf[BUFSIZ];
 
-  while (1)
+  while (true)
     {
       ssize_t result = this->peer ().recv (buf, sizeof (buf) - 1);
 

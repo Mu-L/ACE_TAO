@@ -233,7 +233,7 @@ command_line_test ()
   int result = 0;
   const ACE_TCHAR *command = ACE_TEXT ("test Hello");
   size_t command_len = ACE_OS::strlen (command);
-  ACE_Process_Options options (1, command_len + 1);
+  ACE_Process_Options options (true, command_len + 1);
 
 #ifndef ACE_LACKS_VA_FUNCTIONS
   options.command_line (ACE_TEXT ("%") ACE_TEXT_PRIs, command);

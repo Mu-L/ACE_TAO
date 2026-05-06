@@ -194,7 +194,7 @@ test (ACE_Reactor_Impl *impl)
                     ACE_TEXT_CHAR_TO_TCHAR (hosts[i])));
     }
 
-  ACE_Reactor reactor (impl, 1);
+  ACE_Reactor reactor (impl, true);
 
   ACE_Synch_Options blocking_connect =
     ACE_Synch_Options::defaults;

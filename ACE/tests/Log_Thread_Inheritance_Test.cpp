@@ -114,7 +114,7 @@ int run_main (int, ACE_TCHAR *[])
   mt.activate ();
   mt.wait ();
   MyThread::childthread_.wait ();
-  ACE_LOG_MSG->msg_ostream (initial_stream, 0);
+  ACE_LOG_MSG->msg_ostream (initial_stream, false);
 #ifdef ACE_HAS_PTHREADS
   if (!test_inherited_attributes ()) return -1;
 #endif /* ACE_HAS_PTHREADS */

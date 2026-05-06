@@ -170,7 +170,7 @@ int run_auto_test (const ACE_TCHAR *prog_name)
   if (socket.open (ACE_Addr::sap_any) != -1)
     {
       // send datagrams until child finishes
-      while (1)
+      while (true)
         {
           send_datagram (socket, dgrams_no--);
           ACE_Time_Value child_timeout (1);

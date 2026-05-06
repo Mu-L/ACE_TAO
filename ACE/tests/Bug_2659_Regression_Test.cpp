@@ -108,7 +108,7 @@ private:
 
     // Create a reactor which doesn't automatically restart
     // upon interruption
-    ACE_TP_Reactor tp_reactor (ACE_TP_Reactor::DEFAULT_SIZE, 0);
+    ACE_TP_Reactor tp_reactor (ACE_TP_Reactor::DEFAULT_SIZE, false);
 
     reactor_task_ready = true;
 

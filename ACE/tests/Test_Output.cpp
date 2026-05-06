@@ -46,7 +46,7 @@ ACE_Test_Output::ACE_Test_Output ()
 ACE_Test_Output::~ACE_Test_Output ()
 {
 #if !defined (ACE_LACKS_IOSTREAM_TOTALLY)
-  ACE_LOG_MSG->msg_ostream (&cerr, 0);
+  ACE_LOG_MSG->msg_ostream (&cerr, false);
 #endif /* ! ACE_LACKS_IOSTREAM_TOTALLY */
 
   ACE_LOG_MSG->clr_flags (ACE_Log_Msg::OSTREAM);
@@ -142,7 +142,7 @@ ACE_Test_Output::set_output (const ACE_TCHAR *filename, int append)
   this->output_file_ = ACE_OS::fopen (temp, fmode);
 # endif /* ACE_LACKS_IOSTREAM_TOTALLY */
 
-  ACE_LOG_MSG->msg_ostream (this->output_file_, 0);
+  ACE_LOG_MSG->msg_ostream (this->output_file_, false);
   ACE_LOG_MSG->clr_flags (ACE_Log_Msg::STDERR | ACE_Log_Msg::LOGGER );
   ACE_LOG_MSG->set_flags (ACE_Log_Msg::OSTREAM);
 
@@ -162,7 +162,7 @@ ACE_Test_Output::close ()
     ACE_OS::fflush (this->output_file_);
     ACE_OS::fclose (this->output_file_);
 #endif /* !ACE_LACKS_IOSTREAM_TOTALLY */
-    ACE_LOG_MSG->msg_ostream (nullptr, 0);
+    ACE_LOG_MSG->msg_ostream (nullptr, false);
   }
   // else something else changed the stream and hence should
   // have closed the output_file_

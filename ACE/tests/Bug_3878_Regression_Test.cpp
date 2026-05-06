@@ -34,7 +34,7 @@ public:
   {
     ACE_Thread_ID id;
     thread_id_ = id;
-    while (1)
+    while (true)
       {
         ACE_Message_Block *mb = nullptr;
         if (this->getq (mb) == -1)

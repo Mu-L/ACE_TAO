@@ -135,7 +135,7 @@ Token_Strategy_Test::svc ()
 
       // Turn this on to watch each thread grab the token.  LIFO has the interesting
       // behavior that two thread seem to take turns while all the other threads wait.
-      if (0)
+      if (false)
         ACE_DEBUG ((LM_DEBUG, ACE_TEXT (" (tid = %t) token count = %d, ")
                               ACE_TEXT ("waiters = %d, loop: %d/%d\n"),
                   this->counter_.value (),

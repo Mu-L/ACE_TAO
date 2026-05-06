@@ -204,7 +204,7 @@ run_main (int, ACE_TCHAR *[])
     ACE_CString single_character_string (single_character);
 
     ACE_CString empty_string;
-    ACE_CString zero_size_string (s1.c_str (), 0, nullptr, 1);
+    ACE_CString zero_size_string (s1.c_str (), 0, nullptr, true);
 
     if (ACE_CString::npos == 0)
       ACE_ERROR((LM_ERROR,"Set #1: npos is incorrect.\n"));

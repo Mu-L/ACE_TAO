@@ -332,7 +332,7 @@ int run_main(int, ACE_TCHAR *[])
   disable_signal (SIGPIPE, SIGPIPE);
 
   ACE_Dev_Poll_Reactor dp_reactor;
-  dp_reactor.restart (1);          // Restart on EINTR
+  dp_reactor.restart (true);          // Restart on EINTR
   ACE_Reactor reactor (&dp_reactor);
 
   // Bind acceptor to any port and then find out what the port was.

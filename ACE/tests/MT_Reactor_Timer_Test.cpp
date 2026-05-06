@@ -300,7 +300,7 @@ run_main (int, ACE_TCHAR *[])
   ACE_Time_Value no_waiting (0);
   size_t events = 0;
 
-  while (1)
+  while (true)
     {
       int result = r->handle_events (no_waiting);
 

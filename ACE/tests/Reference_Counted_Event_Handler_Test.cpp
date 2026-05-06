@@ -446,7 +446,7 @@ reference_counted_event_handler_test_2 (ACE_Reactor *reactor)
 void
 reference_count_1 (ACE_Reactor_Impl *impl)
 {
-  ACE_Reactor reactor (impl, 1);
+  ACE_Reactor reactor (impl, true);
 
   ACE_DEBUG ((LM_DEBUG,
               "\nTesting Reference Counted Event Handler Test 1....\n\n"));
@@ -457,7 +457,7 @@ reference_count_1 (ACE_Reactor_Impl *impl)
 void
 reference_count_2 (ACE_Reactor_Impl *impl)
 {
-  ACE_Reactor reactor (impl, 1);
+  ACE_Reactor reactor (impl, true);
 
   ACE_DEBUG ((LM_DEBUG,
               "\nTesting Reference Counted Event Handler Test 2....\n\n"));
@@ -754,7 +754,7 @@ simple_event_handler (ACE_Reactor *reactor)
 void
 simple (ACE_Reactor_Impl *impl)
 {
-  ACE_Reactor reactor (impl, 1);
+  ACE_Reactor reactor (impl, true);
 
   ACE_DEBUG ((LM_DEBUG, ACE_TEXT ("\nTesting Simple Event Handler....\n\n")));
 
@@ -921,7 +921,7 @@ closed_in_upcall_event_handler (ACE_Reactor *reactor)
 void
 closed_in_upcall (ACE_Reactor_Impl *impl)
 {
-  ACE_Reactor reactor (impl, 1);
+  ACE_Reactor reactor (impl, true);
 
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("\nTesting Closed in Upcall Event Handler....\n\n")));

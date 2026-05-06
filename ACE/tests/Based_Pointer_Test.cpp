@@ -97,7 +97,7 @@ int singleton_test ()
     ACE_DLL dll;
     int retval = dll.open (dll_file.c_str (),
                            ACE_DEFAULT_SHLIB_MODE,
-                           0);
+                           false);
 
     if (retval != 0)
        {

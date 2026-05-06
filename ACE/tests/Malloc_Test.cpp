@@ -339,7 +339,7 @@ run_main (int argc, ACE_TCHAR *argv[])
 # endif /* ACE_HAS_POSITION_INDEPENDENT_POINTERS == 1 */
 
       // No arguments means we're the parent process.
-      ACE_Process_Options options (1);
+      ACE_Process_Options options (true);
 
       options.command_line (ACE_TEXT ("%") ACE_TEXT_PRIs
                             ACE_TEXT ("%") ACE_TEXT_PRIs

@@ -158,7 +158,7 @@ test_callbacks ()
 
   // Create a callback object and make it "verbose".
   Logger logger;
-  logger.verbose (1);
+  logger.verbose (true);
 
   // Set the callback object.
   ACE_LOG_MSG->msg_callback (&logger);
@@ -181,7 +181,7 @@ test_callbacks ()
   ACE_DEBUG ((LM_DEBUG,
               ACE_TEXT ("(%t) sixth message\n")));
 
-  logger.verbose (0);
+  logger.verbose (false);
 
   // This message should show up via the Logger callback (not
   // verbosely).

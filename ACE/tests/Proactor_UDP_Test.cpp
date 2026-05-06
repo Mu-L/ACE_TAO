@@ -255,7 +255,7 @@ MyTask::create_proactor (ProactorType type_proactor, size_t max_op)
                   ACE_Proactor (proactor_impl, 1 ),
                   -1);
   // Set new singleton and delete it in close_singleton()
-  ACE_Proactor::instance (this->proactor_, 1);
+  ACE_Proactor::instance (this->proactor_, true);
   return 0;
 }
 

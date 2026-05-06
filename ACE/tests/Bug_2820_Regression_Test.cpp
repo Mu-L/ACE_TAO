@@ -43,7 +43,7 @@ run_main (int, ACE_TCHAR *[])
 
   int result = 0;
 
-  std::unique_ptr<ACE_Reactor> reactor(new ACE_Reactor(new ACE_Select_Reactor, 1));
+  std::unique_ptr<ACE_Reactor> reactor(new ACE_Reactor(new ACE_Select_Reactor, true));
   ACE_Event_Handler_var v =
     ACE::make_event_handler<Simple_Handler> (reactor.get());
 

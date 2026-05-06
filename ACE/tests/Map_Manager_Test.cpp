@@ -818,7 +818,7 @@ test_map_manager (size_t table_size,
 
   // Unbind one at a time.
   MAP_MANAGER::iterator end = map.end ();
-  while (1)
+  while (true)
     {
       MAP_MANAGER::iterator iter = map.begin ();
       if (iter == end)

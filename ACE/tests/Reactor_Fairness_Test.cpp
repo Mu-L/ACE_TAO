@@ -181,7 +181,7 @@ sender (void *arg)
   ACE_SOCK_Stream *temp_socks = nullptr;
   ACE_NEW_RETURN (temp_socks,
                   ACE_SOCK_Stream [opt_nconnections],
-                  nullptr);
+                  ACE_THR_FUNC_RETURN_NULL);
   std::unique_ptr <ACE_SOCK_Stream[]> socks (temp_socks);
 
   // Connection all <opt_nconnections> connections before sending data.

@@ -260,7 +260,7 @@ MyTask::create_proactor (ProactorType type_proactor, size_t max_op)
                   ACE_Proactor (proactor_impl, 1 ),
                   -1);
   // Set new singleton and delete it in close_singleton()
-  ACE_Proactor::instance (this->proactor_, 1);
+  ACE_Proactor::instance (this->proactor_, true);
   return 0;
 }
 
@@ -1085,7 +1085,7 @@ Connector::start (const ACE_INET_Addr& addr, int num)
   //             ACE_Proactor *proactor = 0,
   //             int validate_new_connection = 0 );
 
-  if (this->open (1, nullptr, 1) != 0)
+  if (this->open (true, nullptr, true) != 0)
   {
      ACE_ERROR ((LM_ERROR,
                  ACE_TEXT ("(%t) %p\n"),
@@ -1902,7 +1902,7 @@ run_main (int argc, ACE_TCHAR *argv[])
       if (both != 0 || host == nullptr) // Acceptor
         {
           // Simplify, initial read with zero size
-          if (acceptor.open (addr, 0, 1) == 0)
+          if (acceptor.open (addr, 0, true) == 0)
             rc = 1;
         }
 

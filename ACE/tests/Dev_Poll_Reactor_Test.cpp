@@ -485,7 +485,7 @@ server_worker (void *p)
     }
 
   ACE_Dev_Poll_Reactor dp_reactor;
-  dp_reactor.restart (1);     // Restart on EINTR
+  dp_reactor.restart (true);     // Restart on EINTR
   ACE_Reactor reactor (&dp_reactor);
 
   TestAcceptor server;
@@ -540,7 +540,7 @@ run_main (int, ACE_TCHAR *[])
   disable_signal (SIGPIPE, SIGPIPE);
 
   ACE_Dev_Poll_Reactor dp_reactor;
-  dp_reactor.restart (1);          // Restart on EINTR
+  dp_reactor.restart (true);          // Restart on EINTR
   ACE_Reactor reactor (&dp_reactor);
 
   TestConnector client;

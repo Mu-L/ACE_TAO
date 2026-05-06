@@ -189,7 +189,7 @@ test (void *args)
         // acquiring the mutex or taking ownership of an existing
         // lock. The third parameter tells the guard that the mutex
         // has not been locked.
-        ACE_Guard<ACE_TEST_MUTEX> guard (*mutex, 0, 0);
+        ACE_Guard<ACE_TEST_MUTEX> guard (*mutex, false, 0);
         ACE_TEST_ASSERT (guard.locked () == 0);
 
         // Conditionally acquire the mutex.
@@ -217,7 +217,7 @@ test (void *args)
           // acquiring the mutex, but instead take ownership of the
           // existing lock.  The third parameter tells the guard that
           // the mutex has already been locked.
-          ACE_Guard<ACE_TEST_MUTEX> guard (*mutex, 0, 1);
+          ACE_Guard<ACE_TEST_MUTEX> guard (*mutex, false, 1);
           ACE_TEST_ASSERT (guard.locked () != 0);
 
           // Perform some operation which might exit the current scope
