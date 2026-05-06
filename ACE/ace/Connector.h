@@ -266,8 +266,8 @@ public:
   virtual PEER_CONNECTOR &connector () const;
 
   /// Initialize Svc_Handler.
-  virtual void initialize_svc_handler (ACE_HANDLE handle,
-                                       SVC_HANDLER *svc_handler);
+  void initialize_svc_handler (ACE_HANDLE handle,
+                               SVC_HANDLER *svc_handler) override;
 
   /// Set Reactor.
   void reactor (ACE_Reactor *reactor) override;
@@ -356,7 +356,7 @@ protected:
 
   /// Return the handle set representing the non-blocking connects in
   /// progress.
-  ACE_Unbounded_Set<ACE_HANDLE> &non_blocking_handles ();
+  ACE_Unbounded_Set<ACE_HANDLE> &non_blocking_handles () override;
 
   // = Dynamic linking hooks.
   /// Default version does no work and returns -1.  Must be overloaded

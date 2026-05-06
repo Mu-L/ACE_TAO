@@ -219,8 +219,8 @@ public:
   // have restricted this method to Win32 only.
 
   /// Not implemented.
-  virtual int register_handler (ACE_Event_Handler *event_handler,
-                                ACE_HANDLE event_handle = ACE_INVALID_HANDLE);
+  int register_handler (ACE_Event_Handler *event_handler,
+                        ACE_HANDLE event_handle = ACE_INVALID_HANDLE) override;
 #endif /* ACE_WIN32 */
 
   /// Not implemented.
