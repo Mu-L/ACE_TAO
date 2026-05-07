@@ -864,21 +864,21 @@ public:
    * the interface at some point so that this also controls re-use of
    * the cache.}>
    */
-  virtual int connect_svc_handler (SVC_HANDLER *&sh,
-                                   const ACE_PEER_CONNECTOR_ADDR &remote_addr,
-                                   ACE_Time_Value *timeout,
-                                   const ACE_PEER_CONNECTOR_ADDR &local_addr,
-                                   bool reuse_addr,
-                                   int flags,
-                                   int perms);
-  virtual int connect_svc_handler (SVC_HANDLER *&sh,
-                                   SVC_HANDLER *&sh_copy,
-                                   const ACE_PEER_CONNECTOR_ADDR &remote_addr,
-                                   ACE_Time_Value *timeout,
-                                   const ACE_PEER_CONNECTOR_ADDR &local_addr,
-                                   bool reuse_addr,
-                                   int flags,
-                                   int perms);
+  int connect_svc_handler (SVC_HANDLER *&sh,
+                           const ACE_PEER_CONNECTOR_ADDR &remote_addr,
+                           ACE_Time_Value *timeout,
+                           const ACE_PEER_CONNECTOR_ADDR &local_addr,
+                           bool reuse_addr,
+                           int flags,
+                           int perms) override;
+  int connect_svc_handler (SVC_HANDLER *&sh,
+                           SVC_HANDLER *&sh_copy,
+                           const ACE_PEER_CONNECTOR_ADDR &remote_addr,
+                           ACE_Time_Value *timeout,
+                           const ACE_PEER_CONNECTOR_ADDR &local_addr,
+                           bool reuse_addr,
+                           int flags,
+                           int perms) override;
 
   /// Remove from cache.
   int purge (const void *recycling_act) override;
